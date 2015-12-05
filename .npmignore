@@ -1,0 +1,5 @@
+dev/
+docs/
+node_modules/
+src/
+.npmignore
