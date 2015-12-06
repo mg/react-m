@@ -1,0 +1,18 @@
+button.reactmd-button-flatbutton {
+  background: 0 0;
+}
+
+button.reactmd-button-flatbutton:hover {
+  background-color: rgba(158,158,158,.2);
+}
+
+button.reactmd-button-flatbutton:active {
+  background-color: rgba(158,158,158,.4);
+}
+
+button.reactmd-button-flatbutton:focus:not(:active) {
+    background-color: rgba(0,0,0,.12);
+}
+button.reactmd-button-flatbutton::selection {
+  background: #b3d4fc;
+}

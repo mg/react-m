@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 
 const links= [
+  { to: '/buttons', label: 'Buttons' },
 ]
 
 const Menu= () =>
