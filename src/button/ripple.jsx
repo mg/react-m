@@ -2,13 +2,21 @@ import React from 'react'
 
 export class Ripple extends React.Component {
   static propTypes= {
+    color: React.PropTypes.string,
     center: React.PropTypes.bool,
   }
-  
+
+  static defaultProps= {
+    color: '#000',
+  }
+
   render() {
-    const { center }= this.props
+    const { color, center }= this.props
 
     let styleRipple= {...styles.ripple}
+    styleRipple.color= color
+    styleRipple.background= color
+    
     if(this.data !== undefined) {
       styleRipple.width= this.data.width * 3.5
       styleRipple.height= this.data.height * 3.5
@@ -132,8 +140,8 @@ let styles = VendorPrefix.prefix({
     height: 50,
     transform: 'translate(-50%, -50%)',
 
-    background: '#000',
-    color: '#000',
+    //background: '#000',
+    //color: '#000',
     borderRadius: '50%',
 
     left: 0,

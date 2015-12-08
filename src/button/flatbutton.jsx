@@ -4,12 +4,22 @@ import Ripple from './ripple.jsx'
 export class FlatButton extends React.Component {
   static propTypes= {
     onClick: React.PropTypes.func,
+    color: React.PropTypes.string,
     enabled: React.PropTypes.bool,
     ripple: React.PropTypes.bool,
+    rippleColor: React.PropTypes.string,
+  }
+
+  static defaultProps= {
+    enabled: true,
+    ripple: false,
+    color: '#000',
+    rippleColor: '#000',
   }
 
   render() {
-    const { type, enabled= true, ripple=false, children }= this.props
+    const { type, enabled, ripple, color, rippleColor, children }= this.props
+
     if(!enabled) {
       return(
         <button style={{...styles.button, ...styles.disabled}} disabled>
@@ -18,13 +28,16 @@ export class FlatButton extends React.Component {
       )
     }
 
+    let styleButton= {...styles.button}
+    styleButton.color= color
+
     var markupRipple
     if(ripple)
-      markupRipple= <Ripple center={false}/>
+      markupRipple= <Ripple center={false} color={rippleColor}/>
 
     return (
       <button
-        style={styles.button}
+        style={styleButton}
         className='reactmd-button-flatbutton'
         onClick={::this.onClick}
         onMouseLeave={::this.onMouseLeave}
@@ -51,7 +64,7 @@ export default FlatButton
 import VendorPrefix from 'react-vendor-prefixes'
 let styles = VendorPrefix.prefix({
   button: {
-    color: '#000',
+    //color: '#000',
 
     fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
     fontSize: 14,
