@@ -1,24 +1,49 @@
 import React from 'react'
+import Ripple from './ripple.jsx'
 
-const FlatButton= ({onClick, type, enabled= true, children}) => {
-  if(!enabled) {
-    return(
-      <button style={{...styles.button, ...styles.disabled}} disabled>
+export class FlatButton extends React.Component {
+  static propTypes= {
+    onClick: React.PropTypes.func,
+    enabled: React.PropTypes.bool,
+    ripple: React.PropTypes.bool,
+  }
+
+  render() {
+    const { type, enabled= true, ripple=false, children }= this.props
+    if(!enabled) {
+      return(
+        <button style={{...styles.button, ...styles.disabled}} disabled>
+          {children}
+        </button>
+      )
+    }
+
+    var markupRipple
+    if(ripple)
+      markupRipple= <Ripple center={false}/>
+
+    return (
+      <button
+        style={styles.button}
+        className='reactmd-button-flatbutton'
+        onClick={::this.onClick}
+        onMouseLeave={::this.onMouseLeave}
+        ref={e => this.button= e}
+        >
         {children}
+        {markupRipple}
       </button>
     )
   }
 
-  return (
-    <button style={styles.button} className='reactmd-button-flatbutton' onClick={onClick}>
-      {children}
-    </button>
-  )
-}
+  onClick() {
+    if(this.props.onClick)
+      this.props.onClick()
+  }
 
-FlatButton.propTypes= {
-  onClick: React.PropTypes.func,
-  enabled: React.PropTypes.bool,
+  onMouseLeave() {
+    this.button.blur()
+  }
 }
 
 export default FlatButton
