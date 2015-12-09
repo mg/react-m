@@ -16,10 +16,10 @@ export class Ripple extends React.Component {
     let styleRipple= {...styles.ripple}
     styleRipple.color= color
     styleRipple.background= color
-    
+
     if(this.data !== undefined) {
-      styleRipple.width= this.data.width * 3.5
-      styleRipple.height= this.data.height * 3.5
+      styleRipple.width= this.data.size
+      styleRipple.height= this.data.size
       if(this.state.visible) {
         styleRipple= {...styleRipple, ...styles.isVisible}
       }
@@ -53,10 +53,11 @@ export class Ripple extends React.Component {
 
   onStart(e) {
     if(this.data === undefined) {
-      const rect = this.ripple.getBoundingClientRect()
+      const rect = e.currentTarget.parentNode.getBoundingClientRect()
       this.data= {
         width: rect.width,
         height: rect.height,
+        size: Math.sqrt(rect.width * rect.width + rect.height * rect.height) * 2,
       }
     }
 
