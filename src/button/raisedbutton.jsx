@@ -19,14 +19,6 @@ export class RaisedButton extends React.Component {
   render() {
     const { type, enabled, ripple, color, children }= this.props
 
-    if(!enabled) {
-      return(
-        <button style={{...styles.button, ...styles.disabled}} disabled>
-          {children}
-        </button>
-      )
-    }
-
     let styleButton= {...styles.button}
     styleButton.color= color
     let rippleColor= color
@@ -36,16 +28,31 @@ export class RaisedButton extends React.Component {
       rippleColor= 'white'
     }
 
+    if(!enabled) {
+      return(
+        <button
+          style={{...styleButton, ...styles.disabled}}
+          disabled
+          className='reactmd-button-raisedbutton'
+          >
+          {children}
+        </button>
+      )
+    }
+
     var markupRipple
-    if(ripple)
+    if(ripple) {
       markupRipple= <Ripple center={false} color={rippleColor}/>
+    }
 
     return (
       <button
         style={styleButton}
         className='reactmd-button-raisedbutton'
         onClick={::this.onClick}
-        onMouseLeave={::this.onMouseLeave}
+        onMouseLeave={::this.onEnd}
+        onMouseUp={::this.onEnd}
+        onTouchEnd={::this.onEnd}
         ref={e => this.button= e}
         >
         {children}
@@ -59,7 +66,7 @@ export class RaisedButton extends React.Component {
       this.props.onClick()
   }
 
-  onMouseLeave() {
+  onEnd() {
     this.button.blur()
   }
 }
@@ -100,6 +107,5 @@ let styles = VendorPrefix.prefix({
   disabled: {
     color: 'rgba(0,0,0,.26)',
     cursor: 'default',
-    backgroundColor: 'transparent',
   },
 })

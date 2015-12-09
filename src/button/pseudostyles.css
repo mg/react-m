@@ -26,10 +26,10 @@ button.reactmd-button-raisedbutton {
 }
 
 button.reactmd-button-raisedbutton:active {
-  background-color: rgba(158,158,158,.4);
+  background-color: rgba(158,158,158,.4); 
   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
 }
 
-button.reactmd-button-raisedbutton:focus:not(:active) {
+button.reactmd-button-raisedbutton:focus:not(:active), button.reactmd-button-raisedbutton:hover:not(:disabled) {
   box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
 }
