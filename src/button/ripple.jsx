@@ -13,7 +13,9 @@ export class Ripple extends React.Component {
   render() {
     const { color, center }= this.props
 
+    let styleContainer= {...styles.container, ...styles.borderRadius}
     let styleRipple= {...styles.ripple}
+
     styleRipple.color= color
     styleRipple.background= color
 
@@ -36,7 +38,7 @@ export class Ripple extends React.Component {
 
     return (
       <div
-        style={styles.rippleContainer}
+        style={styleContainer}
         onMouseDown={::this.onStart}
         onMouseUp={::this.onEnd}
         onMouseLeave={::this.onEnd}
@@ -54,6 +56,10 @@ export class Ripple extends React.Component {
   onStart(e) {
     if(this.data === undefined) {
       const rect = e.currentTarget.parentNode.getBoundingClientRect()
+      styles.borderRadius.borderTopLeftRadius= e.currentTarget.parentNode.style['border-top-left-radius']
+      styles.borderRadius.borderTopRightRadius= e.currentTarget.parentNode.style['border-top-right-radius']
+      styles.borderRadius.borderBottomLeftRadius= e.currentTarget.parentNode.style['border-bottom-left-radius']
+      styles.borderRadius.borderBottomRightRadius= e.currentTarget.parentNode.style['border-bottom-right-radius']
       this.data= {
         width: rect.width,
         height: rect.height,
@@ -126,7 +132,7 @@ export default Ripple
 
 import VendorPrefix from 'react-vendor-prefixes'
 let styles = VendorPrefix.prefix({
-  rippleContainer: {
+  container: {
     height: '100%',
     left: 0,
     position: 'absolute',
@@ -151,6 +157,9 @@ let styles = VendorPrefix.prefix({
     position: 'absolute',
     top: 0,
     overflow: 'hidden',
+  },
+
+  borderRadius: {
   },
 
   isAnimating: {
