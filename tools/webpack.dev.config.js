@@ -23,7 +23,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.(js|jsx)$/, loaders: ['babel?optional[]=runtime'], exclude: /node_modules/ },
-      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.json$/, loader: "json-loader" },
     ],
   },
 
