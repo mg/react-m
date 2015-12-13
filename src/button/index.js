@@ -1,7 +1,8 @@
 import './pseudostyles.css'
 
+import Fab from './fab.jsx'
 import FlatButton from './flatbutton.jsx'
 import RaisedButton from './raisedbutton.jsx'
 import IconButton from './iconbutton.jsx'
 
-export default { FlatButton, RaisedButton, IconButton }
+export default { Fab, FlatButton, RaisedButton, IconButton }
