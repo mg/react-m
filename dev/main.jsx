@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 const links= [
   { to: '/buttons', label: 'Buttons' },
+  { to: '/toggles', label: 'Toggles' },
 ]
 
 const Menu= () =>
