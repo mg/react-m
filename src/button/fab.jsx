@@ -89,7 +89,7 @@ const styles= {
 
 
     fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
-    fontSize: 14,
+    fontSize: 24,
     fontWeight: 500,
     textTransform: 'uppercase',
     letterSpacing: 0,
