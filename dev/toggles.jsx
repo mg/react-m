@@ -1,6 +1,6 @@
 import React from 'react'
-import { } from 'toggle'
-import { SpreadRow } from './layouts.jsx'
+import { Checkbox } from 'toggle'
+import { SpreadRow, LeftPackedRow, Space } from './layouts.jsx'
 
 const noop= () => {}
 
@@ -9,8 +9,11 @@ export default class Toggles extends React.Component {
     return (
       <div>
         <h3>Checkbox</h3>
-        <SpreadRow>
-        </SpreadRow>
+        <LeftPackedRow>
+          <Checkbox value={this.state.checked1} onChange={checked1 => this.setState({checked1})}>Checkbox</Checkbox>
+          <Space/>
+          <Checkbox ripple={true} value={this.state.checked2} onChange={checked2 => this.setState({checked2})}>With ripple</Checkbox>
+        </LeftPackedRow>
 
         <h3>Radio button</h3>
         <SpreadRow>
@@ -26,4 +29,6 @@ export default class Toggles extends React.Component {
       </div>
     )
   }
+
+  state= {}
 }
