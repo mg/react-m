@@ -6,6 +6,7 @@ import eslint from'gulp-eslint'
 import babel from 'gulp-babel'
 import ignore from 'gulp-ignore'
 import replace from 'gulp-replace'
+import del from 'del'
 
 // Read default config
 let conf= require('./conf.js')
@@ -33,7 +34,7 @@ gulp.task('lint', () => {
 })
 
 gulp.task('compile', () => {
-  runSequence('compilejs', 'copyassets')
+  runSequence('clean', 'compilejs', 'copyassets')
 })
 
 // Run linter on all source files, use tools/.eslintrc to control linter
@@ -75,11 +76,10 @@ gulp.task('mocha', () => {
 // Compile package. Convert ES6/ES7 code into ES5 code. Do not include spec files.
 // Results are in the /lib folder.
 gulp.task('compilejs', () => {
+  process.env.NODE_ENV= 'production'
   return gulp.src(conf.src)
     .pipe(ignore.exclude('**/*.spec.*'))
-    .pipe(babel({
-      stage: 0,
-    }))
+    .pipe(babel())
     .pipe(replace(/\.jsx/g, '.js'))
     .pipe(gulp.dest(conf.dest));
 })
@@ -87,4 +87,10 @@ gulp.task('compilejs', () => {
 gulp.task('copyassets', () => {
   return gulp.src(conf.assets)
     .pipe(gulp.dest(conf.dest));
+})
+
+gulp.task('clean', () => {
+  return del([
+    '../lib/**/*',
+  ], {force: true})
 })
