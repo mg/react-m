@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { UseAutoId } from 'react-autoid'
 
 const links= [
   { to: '/buttons', label: 'Buttons' },
@@ -21,7 +22,7 @@ const Main= ({children}) =>
     {children}
   </div>
 
-export default Main
+export default UseAutoId(Main)
 
 import VendorPrefix from 'react-vendor-prefixes'
 let styles = VendorPrefix.prefix({
