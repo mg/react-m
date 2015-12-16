@@ -5,4 +5,12 @@ const SpreadRow= ({children}) =>
     {children}
   </div>
 
-export { SpreadRow }
+const LeftPackedRow= ({children}) =>
+  <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+    {children}
+  </div>
+
+const Space= () =>
+  <div style={{marginRight: 20}}/>
+
+export { SpreadRow, LeftPackedRow, Space }
