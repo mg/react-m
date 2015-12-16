@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import Color from 'color'
-import Ripple from './ripple.jsx'
+import Ripple from '../ripple.jsx'
 
 export class RaisedButton extends React.Component {
   static propTypes= {
@@ -53,7 +53,7 @@ export class RaisedButton extends React.Component {
     if(ripple) {
       delete styleButton[':active']
       delete styleButton[':focus'].backgroundColor
-      markupRipple= <Ripple center={false} color={rippleColor}/>
+      markupRipple= <Ripple center={false} color={rippleColor} container={styles.ripple}/>
     }
 
     return (
@@ -140,5 +140,13 @@ let styles = VendorPrefix.prefix({
   disabled: {
     color: 'rgba(0,0,0,.26)',
     cursor: 'default',
+  },
+
+  ripple: {
+    top: 0,
+    left: 0,
+    height: '100%',
+    width: '100%',
+    borderRadius: 2,
   },
 })

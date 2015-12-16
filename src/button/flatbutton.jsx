@@ -1,5 +1,5 @@
 import React from 'react'
-import Ripple from './ripple.jsx'
+import Ripple from '../ripple.jsx'
 
 export class FlatButton extends React.Component {
   static propTypes= {
@@ -33,7 +33,7 @@ export class FlatButton extends React.Component {
 
     var markupRipple
     if(ripple)
-      markupRipple= <Ripple center={false} color={rippleColor}/>
+      markupRipple= <Ripple center={false} color={rippleColor} container={styles.ripple}/>
 
     return (
       <button
@@ -96,5 +96,13 @@ let styles = VendorPrefix.prefix({
     color: 'rgba(0,0,0,.26)',
     cursor: 'default',
     backgroundColor: 'transparent',
+  },
+
+  ripple: {
+    top: 0,
+    left: 0,
+    height: '100%',
+    width: '100%',
+    borderRadius: 2,
   },
 })
