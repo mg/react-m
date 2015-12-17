@@ -1,5 +1,6 @@
 # react-m
 [![Build Status](https://travis-ci.org/mg/react-m.svg)](https://travis-ci.org/mg/react-m)
+[![npm version](https://badge.fury.io/js/react-m.svg)](https://badge.fury.io/js/react-m)
 
 Material design components for ReactJS
 
