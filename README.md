@@ -1,5 +1,5 @@
-# react-md
-[![Build Status](https://travis-ci.org/mg/react-md.svg)](https://travis-ci.org/mg/react-md)
+# react-m
+[![Build Status](https://travis-ci.org/mg/react-m.svg)](https://travis-ci.org/mg/react-m)
 
 Material design components for ReactJS
 
