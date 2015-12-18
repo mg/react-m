@@ -22,7 +22,7 @@ export class Checkbox extends React.Component {
 
     var markupRipple
     if(ripple) {
-      markupRipple= <Ripple center={false} color={'#3f51b5'} container={styles.ripple}/>
+      markupRipple= <Ripple center={true} color={'#3f51b5'} container={styles.ripple}/>
     }
 
     var markupFocus
