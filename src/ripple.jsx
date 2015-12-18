@@ -32,8 +32,6 @@ export class Ripple extends React.Component {
       styleRipple.transform= transform(
         this.state.start,
         this.data.x, this.data.y,
-        center,
-        this.data.width, this.data.height,
       )
     }
 
@@ -55,11 +53,11 @@ export class Ripple extends React.Component {
   }
 
   onStart(e) {
+    const { center }= this.props
+
     if(this.data === undefined) {
       const rect = e.currentTarget.parentNode.getBoundingClientRect()
       this.data= {
-        width: rect.width,
-        height: rect.height,
         size: Math.sqrt(rect.width * rect.width + rect.height * rect.height) * 2,
       }
     }
@@ -67,7 +65,7 @@ export class Ripple extends React.Component {
     const bound = e.currentTarget.getBoundingClientRect()
 
     // Check if we are handling a keyboard click.
-    if (e.clientX === 0 && e.clientY === 0) {
+    if (center || (e.clientX === 0 && e.clientY === 0)) {
       this.data.x= Math.round(bound.width / 2)
       this.data.y= Math.round(bound.height / 2)
     } else {
@@ -108,7 +106,7 @@ export class Ripple extends React.Component {
   }
 }
 
-function transform(start, x, y, center, boundWidth, boundHeight) {
+function transform(start, x, y) {
   var transformString
   var scale
   var offset= `translate(${x}px, ${y}px)`
@@ -117,9 +115,6 @@ function transform(start, x, y, center, boundWidth, boundHeight) {
     scale= 'scale(0.0001, 0.0001)'
   } else {
     scale= ''
-    if(center) {
-      offset= `translate(${boundWidth / 2}px, ${boundHeight / 2}px)`
-    }
   }
 
   return `translate(-50%, -50%) ${offset} ${scale}`
