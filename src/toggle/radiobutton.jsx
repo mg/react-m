@@ -71,6 +71,14 @@ export class RadioButton extends React.Component {
     if(e) e.preventDefault()
     if(value === selected) return
     onChange(value)
+
+    let frameCount= 15
+    const animHandler= () => {
+      frameCount--
+      if(frameCount > 0) requestAnimationFrame(animHandler)
+      else this.setState({focused: false})
+    }
+    requestAnimationFrame(animHandler)
   }
 
   onKeyDown(e) {
