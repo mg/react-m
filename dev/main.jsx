@@ -5,6 +5,7 @@ import { UseAutoId } from 'react-autoid'
 const links= [
   { to: '/buttons', label: 'Buttons' },
   { to: '/toggles', label: 'Toggles' },
+  { to: '/sliders', label: 'Sliders' },
 ]
 
 const Menu= () =>
