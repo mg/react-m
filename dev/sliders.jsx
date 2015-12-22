@@ -10,6 +10,7 @@ export default class Sliders extends React.Component {
       <div>
         <h3>Slider</h3>
         <LeftPackedRow>
+          <Slider min={0} max={100} value={this.state.slider} onChange={slider => this.setState({slider})}/>
         </LeftPackedRow>
       </div>
     )
