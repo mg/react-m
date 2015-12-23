@@ -45,8 +45,8 @@ export class Slider extends React.Component {
       let stylesLower= {...styles.backgroundLower, width: percent * this.state.width}
       let stylesHigher= {...styles.backgroundHigher,  width: (1 - percent) * this.state.width}
 
-      markupSliderLower= <div style={stylesLower}/>
-      markupSliderHigher= <div style={stylesHigher}/>
+      markupSliderLower= <div style={stylesLower} onMouseDown={e => e.preventDefault()}/>
+      markupSliderHigher= <div style={stylesHigher} onMouseDown={e => e.preventDefault()}/>
 
       let focus= {...styles.focus, left: x - this.state.left - styles.focus.width / 2}
       if(this.state.focused && !this.state.track) {
@@ -82,7 +82,7 @@ export class Slider extends React.Component {
           readOnly
           />
 
-        <div style={styles.background} ref={e => this.slider= e} onClick={::this.onClick}>
+        <div style={styles.background} ref={e => this.slider= e} onClick={::this.onClick} onMouseDown={e => e.preventDefault()}>
           {markupSliderLower}
           {markupSliderHigher}
         </div>
