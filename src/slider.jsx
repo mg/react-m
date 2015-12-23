@@ -21,6 +21,7 @@ export class Slider extends React.Component {
     if(value === undefined) {
       value= (max - min) / 2
     }
+    console.log(value)
 
     var markupSliderLower
     var markupSliderHigher
@@ -119,9 +120,9 @@ export class Slider extends React.Component {
   }
 
   onClick(e) {
-    const { onChange }= this.props
+    const { step, onChange }= this.props
     const x= this.xFromEvent(e)
-    const v= this.valueFromX(x)
+    let v= this.valueFromX(x)
     onChange(v)
   }
 
@@ -155,9 +156,18 @@ export class Slider extends React.Component {
   }
 
   valueFromX(x) {
-    const { min, max }= this.props
+    const { min, max, step }= this.props
     const percent= (x - this.state.left) / this.state.width
-    return min + (max - min) * percent
+    let value= min + (max - min) * percent
+    if(step !== undefined) {
+      let remainder= value % step
+      if(remainder !== 0) {
+        let div= Math.floor(value / step);
+        if(remainder > step) return (div * step) + 1
+        return div * step
+      }
+    }
+    return value
   }
 
   xFromValue(value) {
