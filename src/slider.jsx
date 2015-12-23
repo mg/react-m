@@ -271,10 +271,10 @@ const styles= {
   mouseTracker: {
     zIndex: 10,
     backgroundColor: 'transparent',
-    position: 'absolute',
-    width: 'calc(100% + 100px)',
-    height: 200,
-    top: -50,
-    left: -75,
-  },
+    position:'fixed',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+    },
 }
