@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import Ripple from './ripple.jsx'
 
 function interpolate(n, min, max) {
   return min * (1 - n) + max * n
@@ -15,12 +16,12 @@ export class Slider extends React.Component {
   }
 
   render() {
-    let { min, max, value, onChange }= this.props
+    let { min, max, value, ripple, onChange }= this.props
 
     if(value === undefined) {
       value= (max - min) / 2
     }
-    console.log(value)
+
     var markupSliderLower
     var markupSliderHigher
     var markupTracker
@@ -28,7 +29,19 @@ export class Slider extends React.Component {
       const x= this.xFromValue(value)
       const percent= (x - this.state.left) / this.state.width
 
+      var markupMouseTracker
       let stylesTracker= {...styles.tracker, left: x - this.state.left - styles.tracker.width / 2}
+      if(this.state.track) {
+        stylesTracker= {...stylesTracker, ...styles.trackerOn}
+        markupMouseTracker= (
+          <div
+            style={styles.mouseTracker}
+            onMouseMove={::this.onTrack}
+            onMouseUp={::this.onTrackEnd}
+            onMouseLeave={::this.onTrackEnd}
+            />
+        )
+      }
       let stylesLower= {...styles.backgroundLower, width: percent * this.state.width}
       let stylesHigher= {...styles.backgroundHigher,  width: (1 - percent) * this.state.width}
 
@@ -50,11 +63,9 @@ export class Slider extends React.Component {
           <div
             style={stylesTracker}
             onMouseDown={::this.onTrackStart}
-            onMouseMoveCapture={::this.onTrack}
-            onMouseUp={::this.onTrackEnd}
-            ref={e => this.tracker= e}
             />
           <div style={focus}/>
+          {markupMouseTracker}
         </a>
       )
     }
@@ -75,7 +86,6 @@ export class Slider extends React.Component {
           {markupSliderLower}
           {markupSliderHigher}
         </div>
-
         {markupTracker}
       </div>
     )
@@ -92,8 +102,8 @@ export class Slider extends React.Component {
   }
 
   onTrackStart(e) {
+    e.preventDefault()
     this.setState({track: true})
-    console.log(this.tracker.setCapture)
   }
 
   onTrack(e) {
@@ -214,10 +224,20 @@ const styles= {
     cursor: 'pointer',
     position: 'absolute',
     marginTop: 2,
+    marginLeft: 0,
+    top: 0,
     width: 16,
     height: 16,
     borderRadius: '50%',
     backgroundColor: '#3f51b5',
+    transition: 'top .2s cubic-bezier(.4,0,.2,1), margin-left .2s cubic-bezier(.4,0,.2,1), width .2s cubic-bezier(.4,0,.2,1), height .2s cubic-bezier(.4,0,.2,1)',
+  },
+
+  trackerOn: {
+    marginLeft: -2,
+    top: -2,
+    width: 20,
+    height: 20,
   },
 
   focus: {
@@ -237,5 +257,15 @@ const styles= {
   focusOn: {
     backgroundColor: 'rgba(63,81,181,.26)',
     boxShadow: '0 0 0 8px rgba(63,81,181,.26)',
+  },
+
+  mouseTracker: {
+    zIndex: 10,
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    width: 'calc(100% + 100px)',
+    height: 200,
+    top: -50,
+    left: -75,
   },
 }
