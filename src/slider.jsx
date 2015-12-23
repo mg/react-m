@@ -21,7 +21,6 @@ export class Slider extends React.Component {
     if(value === undefined) {
       value= (max - min) / 2
     }
-    console.log(value)
 
     var markupSliderLower
     var markupSliderHigher
@@ -197,7 +196,7 @@ const styles= {
     position: 'absolute',
     top: 0,
     height: 10,
-    width: 'calc(100% - 52px)',
+    width: '100%',
     left: 0,
     padding: '5px 0 0 0',
     overflow: 'hidden',
