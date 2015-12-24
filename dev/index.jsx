@@ -9,6 +9,7 @@ import Buttons from './buttons.jsx'
 import Toggles from './toggles.jsx'
 import Sliders from './sliders.jsx'
 import Progress from './progress.jsx'
+import Badges from './badges.jsx'
 
 render(
   <Router>
@@ -18,6 +19,7 @@ render(
       <Route path="toggles" component={Toggles} />
       <Route path="sliders" component={Sliders} />
       <Route path="progress" component={Progress} />
+      <Route path="badges" component={Badges} />
     </Route>
   </Router>
   , document.getElementById('app')
