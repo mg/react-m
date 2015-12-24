@@ -1,0 +1,43 @@
+@keyframes reactm-spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reactm-spinner-dash {
+  0% {
+    stroke-dasharray: 1.25, 250;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dashoffset: -43.75;
+  }
+
+  100% {
+    stroke-dasharray: 111.25, 250;
+    stroke-dashoffset: -155;
+  }
+}
+
+@keyframes reactm-spinner-colors {
+  0% {
+    stroke: #4285f4;
+  }
+
+  25% {
+    stroke: #de3e35;
+  }
+
+  50% {
+    stroke: #f7c223;
+  }
+
+  75% {
+    stroke: #1b9a59;
+  }
+
+  100% {
+    stroke: #4285f4;
+  }
+}
