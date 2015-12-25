@@ -5,26 +5,37 @@ export class Badge extends React.Component {
   static propTypes= {
     value: React.PropTypes.string.isRequired,
     icon: React.PropTypes.bool,
+    onIcon: React.PropTypes.bool,
     color: React.PropTypes.string,
     align: React.PropTypes.oneOf(['left', 'right'])
   }
 
   static defaultProps= {
     icon: false,
+    onIcon: false,
     align: 'right',
     color: '#ff4081',
   }
 
   render() {
-    const { value, icon, color, align, children }= this.props
+    const { value, icon, onIcon, color, align, children }= this.props
 
     let styleBadge= {...styles.badge, backgroundColor: color}
     if(icon) {
       styleBadge= {...styleBadge, ...styles.icon}
     }
+
+    if(onIcon) {
+      styleBadge= {...styleBadge, right: -12}
+    }
+
     if(align === 'left') {
       delete styleBadge.right
-      styleBadge= {...styleBadge, left: -24}      
+      if(onIcon) {
+        styleBadge= {...styleBadge, left: -12}        
+      } else {
+        styleBadge= {...styleBadge, left: -24}
+      }
     }
 
     return (
