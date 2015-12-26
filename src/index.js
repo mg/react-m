@@ -5,5 +5,6 @@ import Icon from './icon.jsx'
 import ProgressBar from './progressbar.jsx'
 import Spinner from './spinner.jsx'
 import Badge from './badge.jsx'
+import Tooltip from './tooltip.jsx'
 
-export default { Button, Toggle, Slider, Icon, ProgressBar, Spinner, Badge }
+export default { Button, Toggle, Slider, Icon, ProgressBar, Spinner, Badge, Tooltip }

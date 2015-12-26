@@ -8,6 +8,7 @@ const links= [
   { to: '/sliders', label: 'Sliders' },
   { to: '/progress', label: 'Progress' },
   { to: '/badges', label: 'Badges' },
+  { to: '/tooltips', label: 'Tooltips' },
 ]
 
 const Menu= () =>

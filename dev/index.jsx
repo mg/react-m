@@ -10,6 +10,7 @@ import Toggles from './toggles.jsx'
 import Sliders from './sliders.jsx'
 import Progress from './progress.jsx'
 import Badges from './badges.jsx'
+import Tooltips from './tooltips.jsx'
 
 render(
   <Router>
@@ -20,6 +21,7 @@ render(
       <Route path="sliders" component={Sliders} />
       <Route path="progress" component={Progress} />
       <Route path="badges" component={Badges} />
+      <Route path="tooltips" component={Tooltips} />
     </Route>
   </Router>
   , document.getElementById('app')
