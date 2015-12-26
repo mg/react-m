@@ -20,7 +20,7 @@ export default class Tooltips extends React.Component {
             <Icon>print</Icon>
           </Tooltip>
           <Space/>
-          <Tooltip tooltip='Tooltip' align='right'>
+          <Tooltip tooltip='Tooltip' align='right' margin={16}>
             <Icon>print</Icon>
           </Tooltip>
         </LeftPackedRow>

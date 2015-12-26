@@ -5,13 +5,11 @@ import Radium from 'radium'
 export class Tooltip extends React.Component {
   static propTypes= {
     tooltip: React.PropTypes.node.isRequired,
-    delay: React.PropTypes.number,
     align: React.PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
     margin: React.PropTypes.number,
   }
 
   static defaultProps= {
-    delay: 200,
     align: 'bottom',
     margin: 8,
   }
@@ -44,7 +42,7 @@ export class Tooltip extends React.Component {
     }
 
     if(this.state.show) {
-      styleTooltip.animation= `pulse ${delay}ms cubic-bezier(0,0,.2,1)forwards`
+      styleTooltip.animation= `pulse 200ms cubic-bezier(0,0,.2,1)forwards`
     }
 
     return (
