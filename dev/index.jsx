@@ -11,17 +11,19 @@ import Sliders from './sliders.jsx'
 import Progress from './progress.jsx'
 import Badges from './badges.jsx'
 import Tooltips from './tooltips.jsx'
+import Menus from './menus.jsx'
 
 render(
   <Router>
-    <Route path="/" component={Main}>
+    <Route path='/' component={Main}>
       <IndexRedirect to='buttons'/>
-      <Route path="buttons" component={Buttons} />
-      <Route path="toggles" component={Toggles} />
-      <Route path="sliders" component={Sliders} />
-      <Route path="progress" component={Progress} />
-      <Route path="badges" component={Badges} />
-      <Route path="tooltips" component={Tooltips} />
+      <Route path='buttons' component={Buttons} />
+      <Route path='toggles' component={Toggles} />
+      <Route path='sliders' component={Sliders} />
+      <Route path='progress' component={Progress} />
+      <Route path='badges' component={Badges} />
+      <Route path='tooltips' component={Tooltips} />
+      <Route path='menus' component={Menus} />
     </Route>
   </Router>
   , document.getElementById('app')
