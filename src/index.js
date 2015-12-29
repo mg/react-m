@@ -6,5 +6,6 @@ import ProgressBar from './progressbar.jsx'
 import Spinner from './spinner.jsx'
 import Badge from './badge.jsx'
 import Tooltip from './tooltip.jsx'
+import Menu from './menu.jsx'
 
-export default { Button, Toggle, Slider, Icon, ProgressBar, Spinner, Badge, Tooltip }
+export default { Button, Toggle, Slider, Icon, ProgressBar, Spinner, Badge, Tooltip, Menu }
