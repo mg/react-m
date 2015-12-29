@@ -1,6 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
-import Ripple from './ripple.jsx'
+import Ripple from '../ripple.jsx'
 
 function interpolate(n, min, max) {
   return min * (1 - n) + max * n

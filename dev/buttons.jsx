@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fab, FlatButton, RaisedButton, IconButton } from 'button'
+import { Fab, FlatButton, RaisedButton, IconButton } from '../src'
 import { SpreadRow } from './layouts.jsx'
 
 const noop= () => {}

@@ -1,4 +1,4 @@
-import './tooltip.css'
+import './styles.css'
 import React from 'react'
 import Radium from 'radium'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
-import { IconButton } from './button'
+import IconButton from '../iconbutton'
 
 export class Menu extends React.Component {
   static propTypes= {

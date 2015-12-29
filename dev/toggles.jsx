@@ -1,5 +1,5 @@
 import React from 'react'
-import { Checkbox, RadioButton, IconToggle, Switch } from 'toggle'
+import { Checkbox, RadioButton, IconToggle, Switch } from '../src'
 import { LeftPackedRow, Space } from './layouts.jsx'
 
 const noop= () => {}

@@ -1,11 +1,22 @@
-import Button from './button'
-import Toggle from './toggle'
+import Fab from './fab'
+import FlatButton from './flatbutton'
+import IconButton from './iconbutton'
+import RaisedButton from './raisedbutton'
+import Checkbox from './checkbox'
+import RadioButton from './radiobutton'
+import IconToggle from './icontoggle'
+import Switch from './switch'
 import Slider from './slider'
-import Icon from './icon.jsx'
-import ProgressBar from './progressbar.jsx'
-import Spinner from './spinner.jsx'
-import Badge from './badge.jsx'
-import Tooltip from './tooltip.jsx'
-import Menu from './menu.jsx'
+import Icon from './icon'
+import ProgressBar from './progressbar'
+import Spinner from './spinner'
+import Badge from './badge'
+import Tooltip from './tooltip'
+import Menu from './menu'
 
-export default { Button, Toggle, Slider, Icon, ProgressBar, Spinner, Badge, Tooltip, Menu }
+export default {
+  Fab, FlatButton, IconButton, RaisedButton,
+  Checkbox, RadioButton, IconToggle, Switch,
+  Slider, Icon, ProgressBar, Spinner, Badge,
+  Tooltip, Menu,
+}

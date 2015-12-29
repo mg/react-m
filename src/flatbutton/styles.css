@@ -1,4 +1,3 @@
-/* Flat button */
 button.reactmd-button-flatbutton {
   background: 0 0;
 }
@@ -17,9 +16,4 @@ button.reactmd-button-flatbutton:focus:not(:active) {
 
 button.reactmd-button-flatbutton::selection {
   background: #b3d4fc;
-}
-
-/* Raised button */
-button.reactmd-button-raisedbutton {
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
