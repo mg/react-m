@@ -1,6 +1,6 @@
 import React from 'react'
-import { Menu } from '../src'
-import { LeftPackedRow, Space } from './layouts.jsx'
+import { Menu, Drawer, IconButton } from '../src'
+import { SpreadRow, LeftPackedRow, Space } from './layouts.jsx'
 
 export default class Menus extends React.Component {
   render() {
@@ -16,7 +16,7 @@ export default class Menus extends React.Component {
 
     return (
       <div>
-        <h3>Menu</h3>
+        <h3>Menus</h3>
         <LeftPackedRow>
           <Menu direction='downright'>{menu}</Menu>
           <Space/>
@@ -26,6 +26,8 @@ export default class Menus extends React.Component {
           <Space/>
           <Menu direction='upright'>{menu}</Menu>
         </LeftPackedRow>
+
+        <h3>Menus that overdraw button</h3>
         <LeftPackedRow>
           <Menu direction='downright' over>{menu}</Menu>
           <Space/>
@@ -35,7 +37,26 @@ export default class Menus extends React.Component {
           <Space/>
           <Menu direction='upright' over>{menu}</Menu>
         </LeftPackedRow>
+
+        <h3>Drawers</h3>
+        <div style={{position: 'relative', width: '100%', height: 300}}>
+          <SpreadRow>
+            <IconButton onClick={() => this.setState({drawerLeft: !this.state.drawerLeft})}>menu</IconButton>
+            <IconButton onClick={() => this.setState({drawerRight: !this.state.drawerRight})}>menu</IconButton>
+          </SpreadRow>
+          <Drawer open={this.state.drawerLeft} onClose={() => this.setState({drawerLeft: false})}>
+            {menu}
+          </Drawer>
+          <Drawer open={this.state.drawerRight} onClose={() => this.setState({drawerRight: false})} side='right'>
+            {menu}
+          </Drawer>
+        </div>
       </div>
     )
+  }
+
+  state= {
+    drawerLeft: false,
+    drawerRight: false,
   }
 }
