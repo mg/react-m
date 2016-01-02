@@ -92,6 +92,7 @@ const styles= {
   },
 
   tooltip: {
+    fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
     transformOrigin: 'top center',
     willChange: 'transform',
     zIndex: 999,
