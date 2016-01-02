@@ -122,16 +122,4 @@ const styles= {
     right: 0,
     borderLeft: '1px solid #e0e0e0',
   },
-
-  background: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0,0,0,.5)',
-    transitionProperty: 'background-color',
-    transitionDuration: '.2s',
-    transitionTimingFunction: 'cubic-bezier(.4,0,.2,1)',
-  },
 }
