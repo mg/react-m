@@ -14,10 +14,11 @@ import Badge from './badge'
 import Tooltip from './tooltip'
 import Menu from './menu'
 import Drawer from './drawer'
+import Tabs from './tabs'
 
 export default {
   Fab, FlatButton, IconButton, RaisedButton,
   Checkbox, RadioButton, IconToggle, Switch,
   Slider, Icon, ProgressBar, Spinner, Badge,
-  Tooltip, Menu, Drawer,
+  Tooltip, Menu, Drawer, Tabs,
 }

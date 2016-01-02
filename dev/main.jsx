@@ -10,6 +10,7 @@ const links= [
   { to: '/badges', label: 'Badges' },
   { to: '/tooltips', label: 'Tooltips' },
   { to: '/menus', label: 'Menus' },
+  { to: '/tabs', label: 'Tabs' },
 ]
 
 const Menu= () =>

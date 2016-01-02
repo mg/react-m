@@ -12,6 +12,7 @@ import Progress from './progress.jsx'
 import Badges from './badges.jsx'
 import Tooltips from './tooltips.jsx'
 import Menus from './menus.jsx'
+import Tabs from './tabs.jsx'
 
 render(
   <Router>
@@ -24,6 +25,7 @@ render(
       <Route path='badges' component={Badges} />
       <Route path='tooltips' component={Tooltips} />
       <Route path='menus' component={Menus} />
+      <Route path='tabs' component={Tabs} />
     </Route>
   </Router>
   , document.getElementById('app')
