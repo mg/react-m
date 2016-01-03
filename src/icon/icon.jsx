@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import styles from './styles.js'
 
 export class Icon extends React.Component {
   static propTypes= {
@@ -24,15 +25,3 @@ export class Icon extends React.Component {
 }
 
 export default Radium(Icon)
-
-const styles= {
-  icon: {
-    fontSize: 24,
-    fontFamily: 'Material Icons',
-    fontStyle: 'normal',
-    textTransform: 'none',
-    fontFeatureSettings: '\'liga\'',
-    WebkitFontFeatureSettings: '\'liga\'',
-    WebkitFontSmoothing: 'antialiased',
-  }
-}
