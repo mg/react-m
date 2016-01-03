@@ -70,7 +70,6 @@
     "classnames": "^2.2.1",
     "color": "^0.10.1",
     "radium": "^0.15.3",
-    "react-autoid": "^0.1.1",
-    "react-vendor-prefixes": "0.0.2"
+    "react-autoid": "^0.1.1"
   }
 }

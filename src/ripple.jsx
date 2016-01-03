@@ -1,4 +1,5 @@
 import React from 'react'
+import Radium from 'radium'
 
 export class Ripple extends React.Component {
   static propTypes= {
@@ -120,10 +121,9 @@ function transform(start, x, y) {
   return `translate(-50%, -50%) ${offset} ${scale}`
 }
 
-export default Ripple
+export default Radium(Ripple)
 
-import VendorPrefix from 'react-vendor-prefixes'
-let styles = VendorPrefix.prefix({
+let styles = {
   container: {
     position: 'absolute',
     zIndex: 0,
@@ -157,4 +157,4 @@ let styles = VendorPrefix.prefix({
   isVisible: {
     opacity: 0.4,
   }
-})
+}

@@ -31,8 +31,7 @@ const Main= ({children}) =>
 
 export default UseAutoId(Main)
 
-import VendorPrefix from 'react-vendor-prefixes'
-let styles = VendorPrefix.prefix({
+let styles = {
   ul: {
     display: 'flex',
     margin: 0,
@@ -60,4 +59,4 @@ let styles = VendorPrefix.prefix({
     color: 'white',
     backgroundColor: 'black',
   },
-})
+}
