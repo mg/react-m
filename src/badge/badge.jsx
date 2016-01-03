@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import styles from './styles.js'
 
 export class Badge extends React.Component {
   static propTypes= {
@@ -32,7 +33,7 @@ export class Badge extends React.Component {
     if(align === 'left') {
       delete styleBadge.right
       if(onIcon) {
-        styleBadge= {...styleBadge, left: -12}        
+        styleBadge= {...styleBadge, left: -12}
       } else {
         styleBadge= {...styleBadge, left: -24}
       }
@@ -50,35 +51,3 @@ export class Badge extends React.Component {
 }
 
 export default Radium(Badge)
-
-const styles= {
-  container: {
-    position: 'relative',
-  },
-
-  badge: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    top: -12,
-    right: -24,
-
-    fontWeight: 600,
-    fontSize: 12,
-    width: 22,
-    height: 22,
-    borderRadius: '50%',
-    color: '#fff',
-  },
-
-  icon: {
-    fontFamily: 'Material Icons',
-    fontStyle: 'normal',
-    textTransform: 'none',
-    fontFeatureSettings: '\'liga\'',
-    WebkitFontFeatureSettings: '\'liga\'',
-    WebkitFontSmoothing: 'antialiased',
-},
-
-}
