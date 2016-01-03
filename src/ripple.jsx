@@ -56,7 +56,8 @@ export class Ripple extends React.Component {
     const { center }= this.props
 
     if(this.data === undefined) {
-      const rect = e.currentTarget.parentNode.getBoundingClientRect()
+      const rect = e.currentTarget.getBoundingClientRect()
+      console.log(rect, e.currentTarget.parentNode, e.currentTarget)
       this.data= {
         size: Math.sqrt(rect.width * rect.width + rect.height * rect.height) * 2,
       }

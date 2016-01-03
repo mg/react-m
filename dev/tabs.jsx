@@ -39,6 +39,7 @@ export default class TabsPage extends React.Component {
           text={tab => tab.text}
           selected={this.state.tab2}
           onClick={tab2 => this.setState({tab2})}
+          ripple
           fixed
           />
       </div>

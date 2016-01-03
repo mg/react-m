@@ -3,7 +3,10 @@ import Radium from 'radium'
 import Color from 'color'
 import Ripple from '../ripple.jsx'
 
-const Tab= ({tab, id, text, selected, isDisabled, fixed, onClick, colorText, colorBackground, colorSelected, colorTextUnselected}) => {
+const Tab= ({
+  tab, id, text, selected, isDisabled, fixed, ripple, onClick,
+  colorText, colorBackground, colorSelected, colorTextUnselected
+}) => {
   let styleTab= {...styles.tab, ...styles.transition, backgroundColor: colorBackground, borderBottom: `2px solid ${colorBackground}`}
   let styleLink= {...styles.link, ...styles.transition, color: colorTextUnselected}
 
@@ -21,10 +24,16 @@ const Tab= ({tab, id, text, selected, isDisabled, fixed, onClick, colorText, col
     if(onClick !== undefined) onClick= () => {}
   }
 
+  var markupRipple
+  if(ripple) {
+    markupRipple= <Ripple center={false} color={'white'} container={styles.ripple}/>
+  }
+
   if(onClick === undefined) {
     return (
       <li style={styleTab}>
         <a style={styleLink} href={id(tab)}>
+          {markupRipple}
           {text(tab)}
         </a>
       </li>
@@ -33,6 +42,7 @@ const Tab= ({tab, id, text, selected, isDisabled, fixed, onClick, colorText, col
     return (
       <li style={styleTab}>
         <a style={styleLink} href='#' onClick={e => {e.preventDefault(); onClick(tab)}}>
+          {markupRipple}
           {text(tab)}
         </a>
       </li>
@@ -142,6 +152,7 @@ const styles= {
     padding: '0 12px',
     transitionProperty: 'border-bottom-color',
     overflow: 'hidden',
+    position: 'relative',
   },
 
   tabScrollable: {
@@ -166,5 +177,13 @@ const styles= {
     textDecoration: 'none',
     textTransform: 'uppercase',
     transitionProperty: 'color',
+  },
+
+  ripple: {
+    top: 0,
+    left: 0,
+    height: '100%',
+    width: '100%',
+    borderRadius: 2,
   },
 }
