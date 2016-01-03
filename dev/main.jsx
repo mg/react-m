@@ -11,6 +11,7 @@ const links= [
   { to: '/tooltips', label: 'Tooltips' },
   { to: '/menus', label: 'Menus' },
   { to: '/tabs', label: 'Tabs' },
+  { to: '/inputs', label: 'Inputs' },
 ]
 
 const Menu= () =>

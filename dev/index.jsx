@@ -13,6 +13,7 @@ import Badges from './badges.jsx'
 import Tooltips from './tooltips.jsx'
 import Menus from './menus.jsx'
 import Tabs from './tabs.jsx'
+import Inputs from './inputs.jsx'
 
 render(
   <Router>
@@ -26,6 +27,7 @@ render(
       <Route path='tooltips' component={Tooltips} />
       <Route path='menus' component={Menus} />
       <Route path='tabs' component={Tabs} />
+      <Route path='inputs' component={Inputs} />
     </Route>
   </Router>
   , document.getElementById('app')

@@ -15,10 +15,11 @@ import Tooltip from './tooltip'
 import Menu from './menu'
 import Drawer from './drawer'
 import Tabs from './tabs'
+import Input from './input'
 
 export default {
   Fab, FlatButton, IconButton, RaisedButton,
   Checkbox, RadioButton, IconToggle, Switch,
   Slider, Icon, ProgressBar, Spinner, Badge,
-  Tooltip, Menu, Drawer, Tabs,
+  Tooltip, Menu, Drawer, Tabs, Input
 }
