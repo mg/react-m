@@ -3,9 +3,15 @@ import Radium from 'radium'
 import Color from 'color'
 import Ripple from '../ripple.jsx'
 
-const Tab= ({tab, id, text, selected, isDisabled, onClick, colorText, colorBackground, colorSelected, colorTextUnselected}) => {
+const Tab= ({tab, id, text, selected, isDisabled, fixed, onClick, colorText, colorBackground, colorSelected, colorTextUnselected}) => {
   let styleTab= {...styles.tab, ...styles.transition, backgroundColor: colorBackground, borderBottom: `2px solid ${colorBackground}`}
   let styleLink= {...styles.link, ...styles.transition, color: colorTextUnselected}
+
+  if(fixed) {
+    styleTab= {...styleTab, ...styles.tabFixed}
+  } else {
+    styleTab= {...styleTab, ...styles.tabScrollable}
+  }
 
   if(id(tab) === id(selected)) {
     styleTab= {...styleTab, ...styles.tabSelected, borderBottom: `2px solid ${colorSelected}`}
@@ -71,6 +77,7 @@ class Tabs extends React.Component {
     if(fixed) {
       styleTabs= {...styleTabs, ...styles.tabsFixed}
     } else {
+      styleContainer= {...styleContainer, ...styles.containerScrollable}
       styleTabs= {...styleTabs, ...styles.tabsScrollable}
     }
 
@@ -99,6 +106,9 @@ export default Radium(Tabs)
 
 const styles= {
   container: {
+  },
+
+  containerScrollable: {
     overflow: 'hidden',
     height: '50px',
   },
@@ -130,9 +140,17 @@ const styles= {
     height: '48px',
     lineHeight: '48px',
     padding: '0 12px',
-    flexShrink: 0,
     transitionProperty: 'border-bottom-color',
     overflow: 'hidden',
+  },
+
+  tabScrollable: {
+    flexShrink: 0,
+  },
+
+  tabFixed: {
+    textAlign: 'center',
+    flexGrow: 1,
   },
 
   tabSelected: {
