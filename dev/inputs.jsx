@@ -8,13 +8,14 @@ export default class Inputs extends React.Component {
       <div>
         <h3>Inputs</h3>
         <LeftPackedRow>
-          <Input label='Text...' value={this.state.input} onChange={input => this.setState({input})}/>
+          <Input label='Text...' value={this.state.input1} onChange={input1 => this.setState({input1})}/>
+          <Input label='Text...' value={this.state.input2} onChange={input2 => this.setState({input2})} error='There is an error.'/>
         </LeftPackedRow>
       </div>
     )
   }
 
   state= {
-    input: '',
+    input1: '',
   }
 }

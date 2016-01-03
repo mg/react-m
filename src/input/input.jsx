@@ -7,10 +7,13 @@ export class Input extends React.Component {
     label: React.PropTypes.string,
     value: React.PropTypes.string,
     onChange: React.PropTypes.func.isRequired,
+    error: React.PropTypes.string,
   }
 
   render() {
-    const { label, value, onChange, autoId }= this.props
+    const { label, value, onChange, error, autoId }= this.props
+
+    const errorColor= '#de3226'
 
     let styleInput= {...styles.input}
     let styleLabel= {...styles.label}
@@ -20,6 +23,13 @@ export class Input extends React.Component {
       styleInput={ ...styleInput, ...styles.inputFocused}
       styleLabel={ ...styleLabel, ...styles.labelFocused}
       styleBorder={ ...styleBorder, ...styles.borderFocused}
+    }
+
+    let markupError
+    if(error !== undefined) {
+      styleLabel= {...styleLabel, color: errorColor}
+      styleBorder={ ...styleBorder, backgroundColor: errorColor}
+      markupError= <div style={{...styles.error, color: errorColor}}>{error}</div>
     }
 
     return (
@@ -41,6 +51,7 @@ export class Input extends React.Component {
         <div
           style={styleBorder}
           />
+        {markupError}
       </div>
     )
   }
@@ -135,4 +146,9 @@ const styles= {
     width: '100%',
   },
 
+  error: {
+    position: 'absolute',
+    fontSize: 12,
+    marginTop: 3,
+  }
 }
