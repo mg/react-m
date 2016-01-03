@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import { AutoId } from 'react-autoid'
-import Ripple from '../ripple.jsx'
+import Ripple from '../ripple'
 import styles from './styles.js'
 
 export class IconToggle extends React.Component {

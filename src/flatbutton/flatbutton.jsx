@@ -1,7 +1,7 @@
 import './styles.css'
 import React from 'react'
 import Radium from 'radium'
-import Ripple from '../ripple.jsx'
+import Ripple from '../ripple'
 import styles from './styles.js'
 
 export class FlatButton extends React.Component {
