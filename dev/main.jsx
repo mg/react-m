@@ -24,7 +24,7 @@ const Menu= () =>
   </ul>
 
 const Main= ({children}) =>
-  <div>
+  <div style={{display: 'flex'}}>
     <Menu/>
     {children}
   </div>
@@ -33,8 +33,9 @@ export default UseAutoId(Main)
 
 let styles = {
   ul: {
-    display: 'flex',
+    width: 100,
     margin: 0,
+    marginRight: 20,
     padding: 0,
   },
 
