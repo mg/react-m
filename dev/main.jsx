@@ -3,23 +3,23 @@ import { Link } from 'react-router'
 import { UseAutoId } from 'react-autoid'
 
 const links= [
+  { to: '/badge', label: 'Badge' },
+  { to: '/checkbox', label: 'Checkbox' },
+  { to: '/drawer', label: 'Drawer' },
   { to: '/fab', label: 'Fab' },
   { to: '/flatbutton', label: 'FlatButton' },
-  { to: '/raisedbutton', label: 'RaisedButton' },
   { to: '/iconbutton', label: 'IconButton' },
-  { to: '/checkbox', label: 'Checkbox' },
-  { to: '/radiobutton', label: 'RadioButton' },
   { to: '/icontoggle', label: 'IconToggle' },
-  { to: '/switch', label: 'Switch' },
-  { to: '/sliders', label: 'Sliders' },
-  { to: '/progressbar', label: 'ProgressBar' },
-  { to: '/spinner', label: 'Spinner' },
-  { to: '/badges', label: 'Badges' },
-  { to: '/tooltips', label: 'Tooltips' },
+  { to: '/input', label: 'Input' },
   { to: '/menu', label: 'Menu' },
-  { to: '/drawer', label: 'Drawer' },
+  { to: '/progressbar', label: 'ProgressBar' },
+  { to: '/radiobutton', label: 'RadioButton' },
+  { to: '/raisedbutton', label: 'RaisedButton' },
+  { to: '/slider', label: 'Slider' },
+  { to: '/spinner', label: 'Spinner' },
+  { to: '/switch', label: 'Switch' },
   { to: '/tabs', label: 'Tabs' },
-  { to: '/inputs', label: 'Inputs' },
+  { to: '/tooltip', label: 'Tooltip' },
 ]
 
 const Menu= () =>

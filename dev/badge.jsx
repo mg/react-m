@@ -2,7 +2,7 @@ import React from 'react'
 import { Icon, Badge } from '../src'
 import { SpreadRow } from './layouts.jsx'
 
-export default class Badges extends React.Component {
+export default class BadgePage extends React.Component {
   render() {
     return (
       <div>

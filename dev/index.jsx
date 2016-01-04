@@ -13,15 +13,15 @@ import Checkbox from './checkbox.jsx'
 import IconToggle from './icontoggle.jsx'
 import RadioButton from './radiobutton.jsx'
 import Switch from './switch.jsx'
-import Sliders from './sliders.jsx'
+import Slider from './slider.jsx'
 import ProgressBar from './progressbar.jsx'
 import Spinner from './spinner.jsx'
-import Badges from './badges.jsx'
-import Tooltips from './tooltips.jsx'
+import Badge from './badge.jsx'
+import Tooltip from './tooltip.jsx'
 import Menu from './menu.jsx'
 import Drawer from './drawer.jsx'
 import Tabs from './tabs.jsx'
-import Inputs from './inputs.jsx'
+import Input from './input.jsx'
 
 render(
   <Router>
@@ -35,15 +35,15 @@ render(
       <Route path='radiobutton' component={RadioButton} />
       <Route path='icontoggle' component={IconToggle} />
       <Route path='switch' component={Switch} />
-      <Route path='sliders' component={Sliders} />
+      <Route path='slider' component={Slider} />
       <Route path='progressbar' component={ProgressBar} />
       <Route path='spinner' component={Spinner} />
-      <Route path='badges' component={Badges} />
-      <Route path='tooltips' component={Tooltips} />
+      <Route path='badge' component={Badge} />
+      <Route path='tooltip' component={Tooltip} />
       <Route path='menu' component={Menu} />
       <Route path='drawer' component={Drawer} />
       <Route path='tabs' component={Tabs} />
-      <Route path='inputs' component={Inputs} />
+      <Route path='input' component={Input} />
     </Route>
   </Router>
   , document.getElementById('app')

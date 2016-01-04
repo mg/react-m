@@ -4,7 +4,7 @@ import { LeftPackedRow, Space } from './layouts.jsx'
 
 const noop= () => {}
 
-export default class Sliders extends React.Component {
+export default class SliderPage extends React.Component {
   render() {
     return (
       <div>

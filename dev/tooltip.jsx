@@ -2,7 +2,7 @@ import React from 'react'
 import { Icon, Tooltip } from '../src'
 import { LeftPackedRow, Space } from './layouts.jsx'
 
-export default class Tooltips extends React.Component {
+export default class TooltipPage extends React.Component {
   render() {
     return (
       <div>
