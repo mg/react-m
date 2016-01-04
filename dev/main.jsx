@@ -3,7 +3,10 @@ import { Link } from 'react-router'
 import { UseAutoId } from 'react-autoid'
 
 const links= [
-  { to: '/buttons', label: 'Buttons' },
+  { to: '/fab', label: 'Fab' },
+  { to: '/flatbutton', label: 'FlatButton' },
+  { to: '/raisedbutton', label: 'RaisedButton' },
+  { to: '/iconbutton', label: 'IconButton' },
   { to: '/toggles', label: 'Toggles' },
   { to: '/sliders', label: 'Sliders' },
   { to: '/progress', label: 'Progress' },
@@ -33,7 +36,7 @@ export default UseAutoId(Main)
 
 let styles = {
   ul: {
-    width: 100,
+    width: 150,
     margin: 0,
     marginRight: 20,
     padding: 0,
