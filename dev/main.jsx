@@ -34,7 +34,9 @@ const Menu= () =>
 const Main= ({children}) =>
   <div style={{display: 'flex'}}>
     <Menu/>
-    {children}
+    <div style={{flexGrow: 1, minWidth: 500}}>
+      {children}
+    </div>
   </div>
 
 export default UseAutoId(Main)
