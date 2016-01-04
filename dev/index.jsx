@@ -18,7 +18,8 @@ import ProgressBar from './progressbar.jsx'
 import Spinner from './spinner.jsx'
 import Badges from './badges.jsx'
 import Tooltips from './tooltips.jsx'
-import Menus from './menus.jsx'
+import Menu from './menu.jsx'
+import Drawer from './drawer.jsx'
 import Tabs from './tabs.jsx'
 import Inputs from './inputs.jsx'
 
@@ -39,7 +40,8 @@ render(
       <Route path='spinner' component={Spinner} />
       <Route path='badges' component={Badges} />
       <Route path='tooltips' component={Tooltips} />
-      <Route path='menus' component={Menus} />
+      <Route path='menu' component={Menu} />
+      <Route path='drawer' component={Drawer} />
       <Route path='tabs' component={Tabs} />
       <Route path='inputs' component={Inputs} />
     </Route>

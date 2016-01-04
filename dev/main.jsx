@@ -16,7 +16,8 @@ const links= [
   { to: '/spinner', label: 'Spinner' },
   { to: '/badges', label: 'Badges' },
   { to: '/tooltips', label: 'Tooltips' },
-  { to: '/menus', label: 'Menus' },
+  { to: '/menu', label: 'Menu' },
+  { to: '/drawer', label: 'Drawer' },
   { to: '/tabs', label: 'Tabs' },
   { to: '/inputs', label: 'Inputs' },
 ]
