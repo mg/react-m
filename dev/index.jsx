@@ -9,6 +9,7 @@ import Fab from './fab.jsx'
 import FlatButton from './flatbutton.jsx'
 import RaisedButton from './raisedbutton.jsx'
 import IconButton from './iconbutton.jsx'
+import Icon from './icon.jsx'
 import Checkbox from './checkbox.jsx'
 import IconToggle from './icontoggle.jsx'
 import RadioButton from './radiobutton.jsx'
@@ -31,6 +32,7 @@ render(
       <Route path='flatbutton' component={FlatButton} />
       <Route path='raisedbutton' component={RaisedButton} />
       <Route path='iconbutton' component={IconButton} />
+      <Route path='icon' component={Icon} />
       <Route path='checkbox' component={Checkbox} />
       <Route path='radiobutton' component={RadioButton} />
       <Route path='icontoggle' component={IconToggle} />

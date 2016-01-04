@@ -8,6 +8,7 @@ const links= [
   { to: '/drawer', label: 'Drawer' },
   { to: '/fab', label: 'Fab' },
   { to: '/flatbutton', label: 'FlatButton' },
+  { to: '/icon', label: 'Icon' },
   { to: '/iconbutton', label: 'IconButton' },
   { to: '/icontoggle', label: 'IconToggle' },
   { to: '/input', label: 'Input' },
