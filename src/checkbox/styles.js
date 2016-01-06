@@ -71,6 +71,20 @@ export default {
     backgroundColor: 'rgba(63,81,181,.26)',
   },
 
+  disabledLabel: {
+    cursor: 'text',
+    color: 'rgba(0,0,0,.26)',
+  },
+
+  disabledCheckbox: {
+    cursor: 'text',
+    border: '2px solid rgba(0,0,0,.26)',
+  },
+
+  checkOnDisabled: {
+    backgroundColor: 'rgba(0,0,0,.26)',    
+  },
+
   ripple: {
     top: -12,
     left: -12,
