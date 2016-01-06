@@ -9,6 +9,7 @@ export class RadioButton extends React.Component {
     value: React.PropTypes.node,
     selected: React.PropTypes.node,
     ripple: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
     onChange: React.PropTypes.func.isRequired,
   }
 
