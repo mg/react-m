@@ -1,6 +1,5 @@
 import React from 'react'
 import { ProgressBar } from '../src'
-import { LeftPackedRow, Space } from './layouts.jsx'
 
 const noop= () => {}
 
@@ -8,14 +7,14 @@ export default class ProgressBarPage extends React.Component {
   render() {
     return (
       <div>
-        <h3>Progress bars</h3>
-        <LeftPackedRow>
-          <ProgressBar progress={0.6}/>
-          <Space/>
-          <ProgressBar progress={0.3} loaded={0.8}/>
-          <Space/>
-          <ProgressBar indeterminate={true}/>
-        </LeftPackedRow>
+        <h3>Progress bar loading</h3>
+        <ProgressBar progress={0.6}/>
+
+        <h3>Progress bar with buffer</h3>
+        <ProgressBar progress={0.3} loaded={0.8}/>
+
+        <h3>Indeterminate progress bar</h3>
+        <ProgressBar indeterminate={true}/>
       </div>
     )
   }
