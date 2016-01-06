@@ -79,6 +79,25 @@ export default {
     backgroundColor: 'rgba(63,81,181,.26)',
   },
 
+  disabledLabel: {
+    cursor: 'text',
+    color: 'rgba(0,0,0,.26)',
+  },
+
+  disabledOuterCircle: {
+    cursor: 'text',
+    border: '2px solid rgba(0,0,0,.26)',
+  },
+
+  disabledOuterCircleOn: {
+    cursor: 'text',
+    border: '2px solid rgba(0,0,0,.26)',
+  },
+
+  disabledInnerCircle: {
+    background: 'rgba(0,0,0,.26)',
+  },
+
   ripple: {
     top: -12,
     left: -12,
@@ -86,5 +105,5 @@ export default {
     height: 36,
     borderRadius: '50%',
     WebkitMaskImage: '-webkit-radial-gradient(circle,#fff,#000)',
-  },  
+  },
 }

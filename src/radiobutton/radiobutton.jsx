@@ -13,13 +13,21 @@ export class RadioButton extends React.Component {
   }
 
   render() {
-    const { value, selected, ripple, autoId, children }= this.props
+    const { value, selected, disabled, ripple, autoId, children }= this.props
 
-    let outerCircle= {...styles.outerCircle}
-    let innerCircle= {...styles.innerCircle}
+    let outerCircle= styles.outerCircle
+    let innerCircle= styles.innerCircle
+    let label= styles.label
+
     if(value === selected) {
       outerCircle= {...outerCircle, ...styles.outerCircleOn}
       innerCircle= {...innerCircle, ...styles.innerCircleOn}
+    }
+
+    if(disabled) {
+      label= {...label, ...styles.disabledLabel}
+      outerCircle= {...outerCircle, ...styles.disabledOuterCircle}
+      innerCircle= {...innerCircle, ...styles.disabledInnerCircle}
     }
 
     var markupRipple
@@ -55,21 +63,23 @@ export class RadioButton extends React.Component {
           </span>
         </a>
         <span style={innerCircle} onClick={::this.onClick}/>
-        <label htmlFor={autoId} style={styles.label} onClick={::this.onClick}>{children}</label>
+        <label htmlFor={autoId} style={label} onClick={::this.onClick}>{children}</label>
       </div>
     )
   }
 
   onChange(e) {
-    const { value, selected, onChange }= this.props
+    const { value, selected, disabled, onChange }= this.props
+    if(disabled) return
     if(value === selected) return
     onChange(value)
     this.setState({focused: true})
   }
 
   onClick(e) {
-    const { value, selected, onChange }= this.props
+    const { value, selected, disabled, onChange }= this.props
     if(e) e.preventDefault()
+    if(disabled) return
     if(value === selected) return
     onChange(value)
 
@@ -97,6 +107,7 @@ export class RadioButton extends React.Component {
   }
 
   onFocus() {
+    if(this.props.disabled) return
     this.setState({focused: true})
   }
 
