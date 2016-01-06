@@ -16,6 +16,10 @@ export default {
       backgroundColor: 'rgba(158,158,158,.2)',
     },
 
+    ':focus': {
+      backgroundColor: 'rgba(158,158,158,.2)',
+    },
+
     ':active': {
       backgroundColor: 'rgba(158,158,158,.4)',
     },
@@ -48,5 +52,5 @@ export default {
     height: '100%',
     width: '100%',
     borderRadius: '50%',
-  },  
+  },
 }

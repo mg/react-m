@@ -55,8 +55,8 @@ export class IconButton extends React.Component {
     return (
       <button
         style={[styleButton]}
-        className='reactmd-button-iconbutton'
         onClick={::this.onClick}
+        onKeyUp={::this.onKeyUp}
         onMouseLeave={::this.onMouseLeave}
         ref={e => this.button= e}
         >
@@ -69,6 +69,13 @@ export class IconButton extends React.Component {
   onClick() {
     if(this.props.onClick)
       this.props.onClick()
+  }
+
+  onKeyUp(e) {
+    e.preventDefault()
+    if(e.keyCode === 32) {
+      this.props.onClick()
+    }
   }
 
   onMouseLeave() {
