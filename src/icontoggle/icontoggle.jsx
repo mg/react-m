@@ -8,15 +8,23 @@ export class IconToggle extends React.Component {
   static propTypes= {
     value: React.PropTypes.bool,
     ripple: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
     onChange: React.PropTypes.func.isRequired,
   }
 
   render() {
-    const { value, ripple, autoId, children }= this.props
+    const { value, ripple, disabled, autoId, children }= this.props
 
-    let link= {...styles.link}
-    if(value) {
+    let container= styles.container
+    let link= styles.link
+
+    if(value && !disabled) {
       link= {...link, ...styles.linkOn}
+    }
+
+    if(disabled) {
+      container= {...container, ...styles.containerDisabled}      
+      link= {...link, ...styles.linkDisabled}
     }
 
     var markupRipple
@@ -30,7 +38,7 @@ export class IconToggle extends React.Component {
     }
 
     return (
-      <div style={styles.container}>
+      <div style={container}>
         <input
           type='checkbox'
           id={autoId}
@@ -55,14 +63,18 @@ export class IconToggle extends React.Component {
   }
 
   onChange(e) {
-    const { value, onChange }= this.props
+    const { value, disabled, onChange }= this.props
+    if(disabled) return
+
     onChange(!value)
     this.setState({focused: false})
   }
 
   onClick(e) {
-    const { value, ripple, onChange }= this.props
+    const { value, ripple, disabled, onChange }= this.props
     if(e) e.preventDefault()
+    if(disabled) return
+
     onChange(!value)
 
     if(!ripple) {
@@ -87,6 +99,7 @@ export class IconToggle extends React.Component {
   }
 
   onFocus() {
+    if(this.props.disabled) return
     this.setState({focused: true})
   }
 

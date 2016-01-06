@@ -64,6 +64,15 @@ export default {
     boxShadow: '0 0 0 8px rgba(63,81,181,.26)',
   },
 
+  containerDisabled: {
+    cursor: 'default',    
+  },
+
+  linkDisabled: {
+    cursor: 'default',
+    color: 'rgba(0,0,0,.26)',
+  },
+
   ripple: {
     top: 0,
     left: -2,
@@ -71,5 +80,5 @@ export default {
     height: 36,
     borderRadius: '50%',
     WebkitMaskImage: '-webkit-radial-gradient(circle,#fff,#000)',
-  },  
+  },
 }
