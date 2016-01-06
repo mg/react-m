@@ -46,7 +46,6 @@ export class Drawer extends React.Component {
           break
       }
     }
-    console.log(styleDrawer)
 
     return (
       <div style={styleContainer} onClick={::this.onClick}>
