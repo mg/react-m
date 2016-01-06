@@ -9,10 +9,11 @@ export class Input extends React.Component {
     value: React.PropTypes.string,
     onChange: React.PropTypes.func.isRequired,
     error: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
   }
 
   render() {
-    const { label, value, onChange, error, autoId }= this.props
+    const { label, value, onChange, error, disabled, autoId }= this.props
 
     const errorColor= '#de3226'
 
@@ -33,6 +34,11 @@ export class Input extends React.Component {
       markupError= <div style={{...styles.error, color: errorColor}}>{error}</div>
     }
 
+    if(disabled) {
+      styleInput={ ...styleInput, ...styles.disabled}
+      styleLabel={ ...styleLabel, ...styles.disabled}
+    }
+
     return (
       <div style={styles.container}>
         <input
@@ -40,6 +46,7 @@ export class Input extends React.Component {
           style={styleInput}
           type='text'
           value={value}
+          readOnly={disabled}
           onChange={::this.onChange}
           onFocus={::this.onFocus}
           onBlur={::this.onBlur}
@@ -58,10 +65,13 @@ export class Input extends React.Component {
   }
 
   onChange(e) {
+    const { disabled, onChange }= this.props
+    if(disabled) return
     this.props.onChange(e.target.value)
   }
 
   onFocus() {
+    if(this.props.disabled) return
     this.setState({focused: true})
   }
 

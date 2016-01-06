@@ -73,5 +73,10 @@ export default {
     position: 'absolute',
     fontSize: 12,
     marginTop: 3,
-  }  
+  },
+
+  disabled: {
+    cursor: 'default',
+    outline: 'none',
+  }
 }
