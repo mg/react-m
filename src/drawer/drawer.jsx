@@ -20,26 +20,33 @@ export class Drawer extends React.Component {
     let styleContainer= {...styles.container}
     let styleDrawer= {...styles.drawer}
 
-    if(open) {
-      styleContainer= {...styleContainer, ...styles.containerOn}
-      styleDrawer= {...styleDrawer, ...styles.drawerOn}
+    if(side === 'right') {
+      styleContainer= {...styleContainer, ...styles.containerRight}
     }
 
-    switch(side) {
-      case 'left':
-        if(!open) {
-          styleDrawer= {...styleDrawer, ...styles.drawerOffLeft}
-        }
-        styleDrawer= {...styleDrawer, ...styles.drawerLeft}
-        break
-      case 'right':
-        styleContainer= {...styleContainer, ...styles.containerRight}
-        if(!open) {
-          styleDrawer= {...styleDrawer, ...styles.drawerOffRight}
-        }
-        styleDrawer= {...styleDrawer, ...styles.drawerRight}
-        break
+    if(open) {
+      styleContainer= {...styleContainer, ...styles.containerOn}
     }
+
+    if(!this.state.width) {
+      styleDrawer= {...styleDrawer, ...styles.drawerCalc}
+    } else {
+      if(!open) {
+        styleDrawer= {...styleDrawer, ...styles.drawerClosed}
+      } else {
+        styleDrawer= {...styleDrawer, width: this.state.width}
+      }
+      switch(side) {
+        case 'left':
+          styleDrawer= {...styleDrawer, ...styles.drawerLeft}
+          break
+        case 'right':
+          styleDrawer= {...styleDrawer, ...styles.drawerRight}
+          //styleDrawer= {...styleDrawer, right: -this.state.width}
+          break
+      }
+    }
+    console.log(styleDrawer)
 
     return (
       <div style={styleContainer} onClick={::this.onClick}>
@@ -56,6 +63,12 @@ export class Drawer extends React.Component {
   onClick() {
     this.props.onClose()
   }
+
+  componentDidMount() {
+    this.setState({width: this.drawer.scrollWidth})
+  }
+
+  state: {}
 }
 
 export default Radium(Drawer)
