@@ -88,6 +88,24 @@ export default {
     boxShadow: '0 0 0 8px rgba(63,81,181,.26)',
   },
 
+  disabledBackground: {
+    cursor: 'text',    
+  },
+
+  disabledBackgroundLower: {
+    background: 'rgba(0,0,0,.26)',
+    cursor: 'text',
+  },
+
+  disabledBackgroundHigher: {
+    cursor: 'text',
+  },
+
+  disabledTracker: {
+    backgroundColor: '#757575',
+    cursor: 'text',
+  },
+
   mouseTracker: {
     zIndex: 10,
     backgroundColor: 'transparent',

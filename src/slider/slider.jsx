@@ -3,21 +3,18 @@ import Radium from 'radium'
 import Ripple from '../ripple'
 import styles from './styles.js'
 
-function interpolate(n, min, max) {
-  return min * (1 - n) + max * n
-}
-
 export class Slider extends React.Component {
   static propTypes= {
     min: React.PropTypes.number,
     max: React.PropTypes.number,
     value: React.PropTypes.number,
     step: React.PropTypes.number,
+    disabled: React.PropTypes.bool,
     onChange: React.PropTypes.func.isRequired,
   }
 
   render() {
-    let { min, max, value, ripple, onChange }= this.props
+    let { min, max, value, disabled, ripple, onChange }= this.props
 
     if(value === undefined) {
       value= (max - min) / 2
@@ -32,6 +29,9 @@ export class Slider extends React.Component {
 
       var markupMouseTracker
       let stylesTracker= {...styles.tracker, left: x - this.state.left - styles.tracker.width / 2}
+      if(disabled) {
+        stylesTracker= {...stylesTracker, ...styles.disabledTracker}
+      }
       if(this.state.track) {
         stylesTracker= {...stylesTracker, ...styles.trackerOn}
         markupMouseTracker= (
@@ -45,6 +45,11 @@ export class Slider extends React.Component {
       }
       let stylesLower= {...styles.backgroundLower, width: percent * this.state.width}
       let stylesHigher= {...styles.backgroundHigher,  width: (1 - percent) * this.state.width}
+
+      if(disabled) {
+        stylesLower= {...stylesLower, ...styles.disabledBackgroundLower}
+        stylesHigher= {...stylesHigher, ...styles.disabledBackgroundHigher}
+      }
 
       markupSliderLower= <div style={stylesLower} onMouseDown={e => e.preventDefault()}/>
       markupSliderHigher= <div style={stylesHigher} onMouseDown={e => e.preventDefault()}/>
@@ -71,6 +76,11 @@ export class Slider extends React.Component {
       )
     }
 
+    let stylesBackground= styles.background
+    if(disabled) {
+      stylesBackground= {...stylesBackground, ...styles.disabledBackground}
+    }
+
     return (
       <div style={styles.container}>
         <input
@@ -83,7 +93,7 @@ export class Slider extends React.Component {
           readOnly
           />
 
-        <div style={styles.background} ref={e => this.slider= e} onClick={::this.onClick} onMouseDown={e => e.preventDefault()}>
+        <div style={stylesBackground} ref={e => this.slider= e} onClick={::this.onClick} onMouseDown={e => e.preventDefault()}>
           {markupSliderLower}
           {markupSliderHigher}
         </div>
@@ -104,6 +114,7 @@ export class Slider extends React.Component {
 
   onTrackStart(e) {
     e.preventDefault()
+    if(this.props.disabled) return
     this.setState({track: true})
   }
 
@@ -120,15 +131,21 @@ export class Slider extends React.Component {
   }
 
   onClick(e) {
-    const { step, onChange }= this.props
+    const { step, disabled, onChange }= this.props
+
+    if(disabled) return
     const x= this.xFromEvent(e)
     let v= this.valueFromX(x)
+
     onChange(v)
   }
 
   onKeyDown(e) {
     let { value, min, max, step, onChange }= this.props
+
+    value= value || (max - min) / 2
     step= step || 1
+
     if(e.keyCode === 37) {
       if(value > min) onChange(value - step)
       else onChange(min)
@@ -139,6 +156,7 @@ export class Slider extends React.Component {
   }
 
   onFocus() {
+    if(this.props.disabled) return
     this.setState({focused: true})
   }
 
