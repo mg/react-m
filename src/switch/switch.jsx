@@ -19,6 +19,7 @@ export class Switch extends React.Component {
     let link= styles.link
     let track= styles.track
     let thumb= styles.thumb
+    let label= styles.label
 
     if(value) {
       link= {...link, ...styles.linkOn}
@@ -31,6 +32,7 @@ export class Switch extends React.Component {
       track= {...track, ...styles.trackDisabled}
       thumb= {...thumb, ...styles.thumbDisabled}
       link= {...link, cursor: 'default'}
+      label= {...label, ...styles.labelDisabled}
     }
 
     var markupRipple
@@ -65,6 +67,12 @@ export class Switch extends React.Component {
           <span style={focus}/>
           {markupRipple}
         </a>
+        <label
+          style={label}
+          onClick={::this.onClick}
+          >
+          {children}
+        </label>
       </div>
     )
   }
@@ -104,7 +112,7 @@ export class Switch extends React.Component {
   }
 
   onFocus() {
-    if(this.props.disabled) return    
+    if(this.props.disabled) return
     this.setState({focused: true})
   }
 

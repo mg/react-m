@@ -1,14 +1,16 @@
 export default {
   container: {
     position: 'relative',
-    width: 37,
     height: 32,
+    display: 'flex',
     cursor: 'pointer',
   },
 
   link: {
     color: '#616161',
     display: 'block',
+    width: 37,
+    height: '100%',
   },
 
   linkOn: {
@@ -62,6 +64,17 @@ export default {
     border: 'none',
   },
 
+  label: {
+    color: '#757575',
+    fontWeight: 400,
+    paddingLeft: 12,
+    cursor: 'pointer',
+    fontSize: 16,
+    lineHeight: '24px',
+    fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
+    WebkitTapHighlightColor: 'rgba(255,255,255,0)',
+  },
+
   focus: {
     position: 'absolute',
     top: 4,
@@ -88,7 +101,7 @@ export default {
   containerDisabled: {
     cursor: 'default',
   },
-  
+
   trackDisabled: {
     cursor: 'default',
     background: 'rgba(0,0,0,.12)',
@@ -97,6 +110,11 @@ export default {
   thumbDisabled: {
     cursor: 'default',
     background: '#bdbdbd',
+  },
+
+  labelDisabled: {
+    cursor: 'text',
+    color: 'rgba(0,0,0,.26)',
   },
 
   ripple: {
