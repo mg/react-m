@@ -1,6 +1,5 @@
 import React from 'react'
 import { RaisedButton } from '../src'
-import { SpreadRow } from './layouts.jsx'
 
 const noop= () => {}
 
@@ -9,24 +8,20 @@ export default class RaisedButtonPage extends React.Component {
     return (
       <div>
         <h3>Raised buttons</h3>
-        <SpreadRow>
-          <RaisedButton onClick={noop}>Normal</RaisedButton>
-          <RaisedButton ripple={true} onClick={noop}>Ripple</RaisedButton>
-          <RaisedButton color='#3f51b5' onClick={noop}>Color</RaisedButton>
-          <RaisedButton color='#ff4081' ripple={true} onClick={noop}>Color & Ripple</RaisedButton>
-          <RaisedButton enabled={false}>Disabled</RaisedButton>
-        </SpreadRow>
+        <RaisedButton onClick={noop}>Normal</RaisedButton>
+
+        <h3>With ripple</h3>
+        <RaisedButton ripple onClick={noop}>Ripple</RaisedButton>
+
+        <h3>Colored</h3>
+        <RaisedButton color='#3f51b5' onClick={noop}>Color</RaisedButton>
+
+        <h3>Colored with ripple</h3>
+        <RaisedButton color='#ff4081' ripple onClick={noop}>Color & Ripple</RaisedButton>
+
+        <h3>Disabled</h3>
+        <RaisedButton disabled>Disabled</RaisedButton>
       </div>
     )
   }
 }
-
-const FabContainer= ({children}) =>
-  <div style={{padding: '0 15px'}}>
-    {children}
-  </div>
-
-const IconContainer= ({children}) =>
-  <div style={{padding: '0 25px'}}>
-    {children}
-  </div>

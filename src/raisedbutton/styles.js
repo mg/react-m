@@ -29,25 +29,22 @@ export default {
     verticalAlign: 'middle',
     WebkitTapHighlightColor: 'rgba(255,255,255,0)',
 
+    backgroundColor: 'rgba(158,158,158,.2)',
+    boxShadow: '0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12)',
+
     ':active': {
       backgroundColor: 'rgba(158,158,158,.4)',
       boxShadow: '0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2)',
     },
 
     ':focus': {
+      backgroundColor: 'rgba(158, 158, 158, 0.2)',
       boxShadow: '0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36)',
     },
 
     ':hover': {
       boxShadow: '0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36)',
     },
-
-    boxShadow: '0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12)',
-  },
-
-  buttonBase: {
-    backgroundColor: 'rgba(158,158,158,.2)',
-    boxShadow: '0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12)',
   },
 
   disabled: {

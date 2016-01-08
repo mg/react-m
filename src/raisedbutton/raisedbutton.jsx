@@ -1,4 +1,3 @@
-import './styles.css'
 import React from 'react'
 import Radium from 'radium'
 import Color from 'color'
@@ -9,7 +8,7 @@ export class RaisedButton extends React.Component {
   static propTypes= {
     onClick: React.PropTypes.func,
     color: React.PropTypes.string,
-    enabled: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
     ripple: React.PropTypes.bool,
   }
 
@@ -21,29 +20,31 @@ export class RaisedButton extends React.Component {
   }
 
   render() {
-    const { type, enabled, ripple, color, children }= this.props
+    const { type, disabled, ripple, color, children }= this.props
 
     let styleButton= {...styles.button}
-    let styleBase= {...styles.buttonBase}
+
     styleButton.color= color
     let rippleColor= color
-    if(color !== '#000' && enabled) {
+    if(color !== '#000' && !disabled) {
       let c= Color(color)
       c.alpha(0.9).lighten(0.1)
-      if(ripple !== true) styleButton[':focus'].backgroundColor= c.rgbString()
-      styleBase.color= 'white'
-      styleBase.backgroundColor= color
+      if(ripple !== true) {
+        styleButton[':focus'].backgroundColor= c.rgbString()
+      }
+      styleButton.color= 'white'
+      styleButton.backgroundColor= color
       let rc= Color(color).alpha(0.7).lighten(0.7)
       rippleColor= rc.rgbString()
     }
 
-    if(!enabled) {
+    if(disabled) {
       delete styleButton[':active']
       delete styleButton[':focus']
       delete styleButton[':hover']
       return(
         <button
-          style={[styleButton, styleBase, styles.disabled]}
+          style={[styleButton, styles.disabled]}
           disabled
           >
           {children}
@@ -56,13 +57,14 @@ export class RaisedButton extends React.Component {
       delete styleButton[':active']
       delete styleButton[':focus'].backgroundColor
       markupRipple= <Ripple center={false} color={rippleColor} container={styles.ripple}/>
+    } else if(color === '#000') {
+      delete styleButton[':focus'].backgroundColor      
     }
 
     return (
       <button
-        style={[styleButton, styleBase]}
+        style={styleButton}
         onClick={::this.onClick}
-        className='reactmd-button-raisedbutton'
         onMouseLeave={::this.onEnd}
         onMouseUp={::this.onEnd}
         onTouchEnd={::this.onEnd}
