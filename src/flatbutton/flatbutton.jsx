@@ -1,4 +1,3 @@
-import './styles.css'
 import React from 'react'
 import Radium from 'radium'
 import Ripple from '../ripple'
@@ -8,30 +7,35 @@ export class FlatButton extends React.Component {
   static propTypes= {
     onClick: React.PropTypes.func,
     color: React.PropTypes.string,
-    enabled: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
     ripple: React.PropTypes.bool,
     rippleColor: React.PropTypes.string,
   }
 
   static defaultProps= {
-    enabled: true,
-    ripple: false,
     color: '#000',
     rippleColor: '#000',
   }
 
   render() {
-    const { type, enabled, ripple, color, rippleColor, children }= this.props
+    const { type, disabled, ripple, color, rippleColor, children }= this.props
 
-    if(!enabled) {
+    let styleButton= {...styles.button}
+
+    if(disabled) {
+      delete styleButton[':active']
+      delete styleButton[':focus']
+      delete styleButton[':hover']
       return(
-        <button style={{...styles.button, ...styles.disabled}} disabled>
+        <button
+          style={[styleButton, styles.disabled]}
+          disabled
+          >
           {children}
         </button>
       )
     }
 
-    let styleButton= {...styles.button}
     styleButton.color= color
 
     var markupRipple
@@ -41,7 +45,6 @@ export class FlatButton extends React.Component {
     return (
       <button
         style={styleButton}
-        className='reactmd-button-flatbutton'
         onClick={::this.onClick}
         onMouseLeave={::this.onMouseLeave}
         ref={e => this.button= e}

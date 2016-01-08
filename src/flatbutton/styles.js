@@ -26,6 +26,20 @@ export default {
     textAlign: 'center',
     verticalAlign: 'middle',
     WebkitTapHighlightColor: 'rgba(255,255,255,0)',
+
+    backgroundColor: 'initial',
+
+    ':hover': {
+      backgroundColor: 'rgba(158,158,158,.2)',
+    },
+
+    ':focus': {
+      backgroundColor: 'rgba(0,0,0,.12)',
+    },
+
+    ':active': {
+      backgroundColor: 'rgba(158,158,158,.4)',
+    },
   },
 
   disabled: {
@@ -40,5 +54,5 @@ export default {
     height: '100%',
     width: '100%',
     borderRadius: 2,
-  },  
+  },
 }
