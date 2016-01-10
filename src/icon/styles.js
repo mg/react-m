@@ -1,6 +1,5 @@
 export default {
   icon: {
-    fontSize: 24,
     fontFamily: 'Material Icons',
     fontStyle: 'normal',
     textTransform: 'none',
