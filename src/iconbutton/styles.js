@@ -1,9 +1,6 @@
 export default {
   button: {
     borderRadius: '50%',
-    fontSize: 24,
-    height: 32,
-    minWidth: 32,
     outline: 'none',
     backgroundColor: 'initial',
     border: 'none',
@@ -11,6 +8,7 @@ export default {
     transition: 'box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1)',
     outline: 'none',
     cursor: 'pointer',
+    padding: 5,
 
     ':hover': {
       backgroundColor: 'rgba(158,158,158,.2)',
