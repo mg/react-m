@@ -1,10 +1,15 @@
 export default {
   container: {
-    position: 'relative',
-    width: 100,
+    display: 'flex',
+    width: 200,
     maxWidth: '100%',
     margin: 0,
+  },
+
+  innerContainer: {
+    position: 'relative',
     padding: '20px 0',
+    flexGrow: '1',
   },
 
   input: {
@@ -29,7 +34,6 @@ export default {
   label: {
     bottom: 0,
     color: 'rgba(0,0,0,.26)',
-    fontSize: 16,
     left: 0,
     right: 0,
     pointerEvents: 'none',
@@ -46,7 +50,6 @@ export default {
 
   labelFocused: {
     color: '#3f51b5',
-    fontSize: 12,
     top: 4,
     visibility: 'visible',
   },
@@ -69,9 +72,12 @@ export default {
     width: '100%',
   },
 
+  icon: {
+    padding: '22px 4px 0 0',
+  },
+
   error: {
     position: 'absolute',
-    fontSize: 12,
     marginTop: 3,
   },
 
