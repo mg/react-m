@@ -2,6 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import { AutoId } from 'react-autoid'
 import Ripple from '../ripple'
+import Icon from '../icon'
 import styles from './styles.js'
 
 export class IconToggle extends React.Component {
@@ -23,7 +24,7 @@ export class IconToggle extends React.Component {
     }
 
     if(disabled) {
-      container= {...container, ...styles.containerDisabled}      
+      container= {...container, ...styles.containerDisabled}
       link= {...link, ...styles.linkDisabled}
     }
 
@@ -54,7 +55,7 @@ export class IconToggle extends React.Component {
           onKeyUp={::this.onKeyUp}
           onFocus={::this.onFocus}
           onBlur={::this.onBlur}>
-          <i style={styles.icon}>{children}</i>
+          <Icon color={disabled ? 'rgba(0,0,0,.26)' : undefined}>{children}</Icon>
           <span style={focus}/>
           {markupRipple}
         </a>

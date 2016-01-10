@@ -2,6 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import Color from 'color'
 import Ripple from '../ripple'
+import Icon from '../icon'
 import styles from './styles.js'
 
 export class IconButton extends React.Component {
@@ -41,7 +42,7 @@ export class IconButton extends React.Component {
           style={[styleButton, styles.disabled]}
           disabled
           >
-          <i style={styles.icon}>{children}</i>
+          <Icon>{children}</Icon>
         </button>
       )
     }
@@ -60,7 +61,7 @@ export class IconButton extends React.Component {
         onMouseLeave={::this.onMouseLeave}
         ref={e => this.button= e}
         >
-        <i style={styles.icon}>{children}</i>
+        <Icon color={color}>{children}</Icon>
         {markupRipple}
       </button>
     )

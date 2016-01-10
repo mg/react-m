@@ -25,22 +25,6 @@ export default {
     },
   },
 
-  icon: {
-    verticalAlign: 'middle',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-12px,-12px)',
-    lineHeight: '24px',
-    width: 24,
-    fontFamily: 'Material Icons',
-    fontStyle: 'normal',
-    textTransform: 'none',
-    fontFeatureSettings: '\'liga\'',
-    WebkitFontFeatureSettings: '\'liga\'',
-    WebkitFontSmoothing: 'antialiased',
-  },
-
   disabled: {
     color: 'rgba(0,0,0,.26)',
     cursor: 'default',
