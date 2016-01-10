@@ -8,18 +8,20 @@ export class ProgressBar extends React.Component {
     progress: React.PropTypes.number,
     loaded: React.PropTypes.number,
     indeterminate: React.PropTypes.bool,
+    query: React.PropTypes.bool,
+    size: React.PropTypes.number,
   }
 
   static defaultProps= {
     progress: 0,
     loaded: 1,
-    indeterminate: false,
+    size: 4
   }
 
   render() {
-    let { progress, loaded, indeterminate  }= this.props
+    let { progress, loaded, indeterminate, query, size }= this.props
 
-    let styleContainer= {...styles.container}
+    let styleContainer= {...styles.container, height: size}
 
     if(indeterminate) {
       styleContainer= {...styleContainer, ...styles.indeterminatedContainer}
@@ -37,9 +39,12 @@ export class ProgressBar extends React.Component {
     let styleLoading= {...styles.bar, ...styles.loading}
 
     if(indeterminate) {
-      styleProgress= {...styleProgress, ...styles.animation, left: 0, ...styles.indeterminate1}
-      styleProgress= {...styleProgress, top: 0, left: 0, position: 'absolute'}
+      styleProgress= {...styleProgress, ...styles.animation, top: 0, left: 0, ...styles.indeterminate1, position: 'absolute'}
       styleLoading= {...styleProgress, ...styles.animation, right: 0, ...styles.indeterminate2}
+    } else if(query) {
+      styleProgress= {...styleProgress, ...styles.query, width: '100%', position: 'absolute', height: size}
+      styleLoaded= {...styleLoaded, width: '100%'}
+      //styleLoading= {...styleProgress, ...styles.query, right: 0}
     } else {
       styleProgress= {...styleProgress, width: `${progress * 100}%`}
       styleLoaded= {...styleLoaded, width: `${(loaded - progress) * 100}%`}

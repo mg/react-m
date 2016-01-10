@@ -35,7 +35,7 @@ const Menu= () =>
 const Main= ({children}) =>
   <div style={{display: 'flex'}}>
     <Menu/>
-    <div style={{flexGrow: 1, minWidth: 500}}>
+    <div style={{flexGrow: 1, minWidth: 200}}>
       {children}
     </div>
   </div>

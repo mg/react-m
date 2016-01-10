@@ -14,7 +14,10 @@ export default class ProgressBarPage extends React.Component {
         <ProgressBar progress={0.3} loaded={0.8}/>
 
         <h3>Indeterminate progress bar</h3>
-        <ProgressBar indeterminate={true}/>
+        <ProgressBar indeterminate size={1}/>
+
+        <h3>Querying</h3>
+        <ProgressBar query size={6}/>
       </div>
     )
   }

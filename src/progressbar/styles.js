@@ -1,8 +1,7 @@
 export default {
   container: {
     height: 4,
-    width: '50vw',
-    maxWidth: 260,
+    width: '100%',
   },
 
   determinatedContainer: {
@@ -51,5 +50,10 @@ export default {
 
   indeterminate2: {
     animationName: 'progressbar-indeterminate2',
+  },
+
+  query: {
+    transition: 'all .2s linear',
+    animation: 'query .8s infinite cubic-bezier(.39,.575,.565,1)',
   },
 }
