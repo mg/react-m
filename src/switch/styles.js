@@ -11,6 +11,7 @@ export default {
     display: 'block',
     width: 37,
     height: '100%',
+    outline: 'none',
   },
 
   linkOn: {
