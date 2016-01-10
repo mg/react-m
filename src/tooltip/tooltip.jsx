@@ -33,10 +33,10 @@ export class Tooltip extends React.Component {
         styleTooltip= {...styleTooltip, top: dimContainer.height + margin, left: dimContainer.width-dimTooltip.width}
         break
         case 'left':
-        styleTooltip= {...styleTooltip, top: (dimContainer.height - dimTooltip.height), left: -dimTooltip.width - dimContainer.width/2 - margin}
+        styleTooltip= {...styleTooltip, top: (dimContainer.height - dimTooltip.height - 6), left: -dimTooltip.width - dimContainer.width/2 - margin}
         break
         case 'right':
-        styleTooltip= {...styleTooltip, top: (dimContainer.height - dimTooltip.height), right: -(dimContainer.width + dimContainer.width + margin)}
+        styleTooltip= {...styleTooltip, top: (dimContainer.height - dimTooltip.height - 6), right: -(dimContainer.width + dimContainer.width + margin)}
       }
     } else {
       styleTooltip= {...styleTooltip, ...styles.tooltipHide}
