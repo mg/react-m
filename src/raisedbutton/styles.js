@@ -2,10 +2,7 @@ export default {
   button: {
     //color: '#000',
 
-
-
     fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
-    fontSize: 14,
     fontWeight: 500,
     textTransform: 'uppercase',
     letterSpacing: 0,
@@ -15,10 +12,11 @@ export default {
     lineHeight: '36px',
     padding: '0 16px',
 
+    display: 'flex',
+
     border: 'none',
     borderRadius: 2,
     position: 'relative',
-    display: 'inline-block',
     overflow: 'hidden',
     willChange: 'box-shadow,transform',
     transition: 'box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1)',
@@ -45,6 +43,10 @@ export default {
     ':hover': {
       boxShadow: '0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36)',
     },
+  },
+
+  icon: {
+    paddingRight: 4,
   },
 
   disabled: {

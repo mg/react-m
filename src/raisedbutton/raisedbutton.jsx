@@ -2,14 +2,17 @@ import React from 'react'
 import Radium from 'radium'
 import Color from 'color'
 import Ripple from '../ripple'
+import Icon from '../icon'
 import styles from './styles.js'
 
 export class RaisedButton extends React.Component {
   static propTypes= {
     onClick: React.PropTypes.func,
+    icon: React.PropTypes.string,
     color: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     ripple: React.PropTypes.bool,
+    size: React.PropTypes.number,
   }
 
   static defaultProps= {
@@ -17,12 +20,13 @@ export class RaisedButton extends React.Component {
     ripple: false,
     color: '#000',
     rippleColor: '#000',
+    size: 14,
   }
 
   render() {
-    const { type, disabled, ripple, color, children }= this.props
+    let { icon, disabled, ripple, color, size, children }= this.props
 
-    let styleButton= {...styles.button}
+    let styleButton= {...styles.button, fontSize: size}
 
     styleButton.color= color
     let rippleColor= color
@@ -36,6 +40,18 @@ export class RaisedButton extends React.Component {
       styleButton.backgroundColor= color
       let rc= Color(color).alpha(0.7).lighten(0.7)
       rippleColor= rc.rgbString()
+      color= 'white'
+    }
+
+    var markupIcon
+    if(icon) {
+      markupIcon= (
+        <div style={styles.icon}>
+          <Icon color={disabled ? 'rgba(0,0,0,.26)' : color} size={size+4}>
+            {icon}
+          </Icon>
+        </div>
+      )
     }
 
     if(disabled) {
@@ -47,6 +63,7 @@ export class RaisedButton extends React.Component {
           style={[styleButton, styles.disabled]}
           disabled
           >
+          {markupIcon}
           {children}
         </button>
       )
@@ -58,7 +75,7 @@ export class RaisedButton extends React.Component {
       delete styleButton[':focus'].backgroundColor
       markupRipple= <Ripple center={false} color={rippleColor} container={styles.ripple}/>
     } else if(color === '#000') {
-      delete styleButton[':focus'].backgroundColor      
+      delete styleButton[':focus'].backgroundColor
     }
 
     return (
@@ -70,6 +87,7 @@ export class RaisedButton extends React.Component {
         onTouchEnd={::this.onEnd}
         ref={e => this.button= e}
         >
+        {markupIcon}
         {children}
         {markupRipple}
       </button>
