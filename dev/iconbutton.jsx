@@ -20,7 +20,7 @@ export default class IconButtonPage extends React.Component {
         <IconButton color='#ff4081' ripple={true} onClick={noop}>home</IconButton>
 
         <h3>Disabled</h3>
-        <IconButton enabled={false} onClick={noop}>thumb_up</IconButton>
+        <IconButton disabled onClick={noop}>thumb_up</IconButton>
       </div>
     )
   }

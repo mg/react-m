@@ -7,33 +7,32 @@ import styles from './styles.js'
 
 export class IconButton extends React.Component {
   static propTypes= {
-    enabled: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
     color: React.PropTypes.string,
     ripple: React.PropTypes.bool,
     onClick: React.PropTypes.func.isRequired,
   }
 
   static defaultProps= {
-    enabled: true,
     color: '#000',
     ripple: false,
   }
 
   render() {
-    const { icon, enabled, color, ripple, children }= this.props
+    const { icon, disabled, color, ripple, children }= this.props
 
     let styleButton= {...styles.button}
 
     styleButton.color= color
     let rippleColor= color
-    if(color !== '#000' && enabled) {
+    if(color !== '#000' && !disabled) {
       let c= Color(color)
       c.alpha(0.9).lighten(0.1)
       let rc= Color(color).alpha(0.7).lighten(0.2)
       rippleColor= rc.rgbString()
     }
 
-    if(!enabled) {
+    if(disabled) {
       delete styleButton[':active']
       delete styleButton[':hover']
 
