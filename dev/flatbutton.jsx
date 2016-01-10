@@ -8,39 +8,39 @@ export default class FlatButtonPage extends React.Component {
   render() {
     return (
       <div>
-        <h3>Flat button</h3>
+        <h3>Normal</h3>
         <LeftPackedRow>
-          <FlatButton onClick={noop}>Normal</FlatButton>
+          <FlatButton onClick={noop}>Label</FlatButton>
           <Space/>
-          <FlatButton icon='mood' onClick={noop}>Normal</FlatButton>
+          <FlatButton icon='mood' onClick={noop}>Label</FlatButton>
         </LeftPackedRow>
 
         <h3>With ripple</h3>
         <LeftPackedRow>
-          <FlatButton ripple onClick={noop}>Ripple</FlatButton>
+          <FlatButton ripple onClick={noop}>Label</FlatButton>
           <Space/>
-          <FlatButton icon='bookmark' ripple onClick={noop}>Ripple</FlatButton>
+          <FlatButton icon='bookmark' ripple onClick={noop}>Label</FlatButton>
         </LeftPackedRow>
 
         <h3>Colored</h3>
         <LeftPackedRow>
-          <FlatButton color='#3f51b5' onClick={noop}>Color</FlatButton>
+          <FlatButton color='#3f51b5' onClick={noop}>Label</FlatButton>
           <Space/>
-          <FlatButton icon='inbox' color='#3f51b5' onClick={noop}>Color</FlatButton>
+          <FlatButton icon='inbox' color='#3f51b5' onClick={noop}>Label</FlatButton>
         </LeftPackedRow>
 
         <h3>Colored with ripple</h3>
         <LeftPackedRow>
-          <FlatButton color='#ff4081' ripple rippleColor='#ff8cb3' onClick={noop}>Color & Ripple</FlatButton>
+          <FlatButton color='#ff4081' ripple rippleColor='#ff8cb3' onClick={noop}>Label</FlatButton>
           <Space/>
-          <FlatButton icon='favorite' color='#ff4081' ripple rippleColor='#ff8cb3' onClick={noop}>Color & Ripple</FlatButton>
+          <FlatButton icon='favorite' color='#ff4081' ripple rippleColor='#ff8cb3' onClick={noop}>Label</FlatButton>
         </LeftPackedRow>
 
         <h3>Disabled</h3>
         <LeftPackedRow>
-          <FlatButton disabled>Disabled</FlatButton>
+          <FlatButton disabled>Label</FlatButton>
           <Space/>
-          <FlatButton icon='add' disabled>Disabled</FlatButton>
+          <FlatButton icon='add' disabled>Label</FlatButton>
         </LeftPackedRow>
       </div>
     )
