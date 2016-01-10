@@ -1,7 +1,6 @@
 export default {
   container: {
     position: 'relative',
-    height: 32,
     display: 'flex',
     cursor: 'pointer',
   },
@@ -37,7 +36,7 @@ export default {
     background: '#fafafa',
     position: 'absolute',
     left: 0,
-    top: 2,
+    top: 1,
     height: 20,
     width: 20,
     borderRadius: '50%',
@@ -68,7 +67,7 @@ export default {
   label: {
     color: '#757575',
     fontWeight: 400,
-    paddingLeft: 12,
+    paddingLeft: 10,
     cursor: 'pointer',
     fontSize: 16,
     lineHeight: '24px',
