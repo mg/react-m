@@ -1,8 +1,7 @@
 export default {
   container: {
     display: 'flex',
-    width: 200,
-    maxWidth: '100%',
+    width: '100%',
     margin: 0,
   },
 
