@@ -8,39 +8,39 @@ export default class RaisedButtonPage extends React.Component {
   render() {
     return (
       <div>
-        <h3>Raised buttons</h3>
+        <h3>Normal</h3>
         <LeftPackedRow>
-          <RaisedButton onClick={noop}>Normal</RaisedButton>
+          <RaisedButton onClick={noop}>Label</RaisedButton>
           <Space/>
-          <RaisedButton icon='build' onClick={noop}>Normal</RaisedButton>
+          <RaisedButton icon='build' onClick={noop}>Label</RaisedButton>
         </LeftPackedRow>
 
         <h3>With ripple</h3>
         <LeftPackedRow>
-          <RaisedButton ripple onClick={noop}>Ripple</RaisedButton>
+          <RaisedButton ripple onClick={noop}>Label</RaisedButton>
           <Space/>
-          <RaisedButton icon='eject' ripple onClick={noop}>Ripple</RaisedButton>
+          <RaisedButton icon='eject' ripple onClick={noop}>Label</RaisedButton>
         </LeftPackedRow>
 
         <h3>Colored</h3>
         <LeftPackedRow>
-          <RaisedButton color='#3f51b5' onClick={noop}>Color</RaisedButton>
+          <RaisedButton color='#3f51b5' onClick={noop}>Label</RaisedButton>
           <Space/>
-          <RaisedButton icon='delete' color='#3f51b5' onClick={noop}>Color</RaisedButton>
+          <RaisedButton icon='delete' color='#3f51b5' onClick={noop}>Label</RaisedButton>
         </LeftPackedRow>
 
         <h3>Colored with ripple</h3>
         <LeftPackedRow>
-          <RaisedButton color='#ff4081' ripple onClick={noop}>Color & Ripple</RaisedButton>
+          <RaisedButton color='#ff4081' ripple onClick={noop}>Label</RaisedButton>
           <Space/>
-          <RaisedButton icon='search' color='#ff4081' ripple onClick={noop}>Color & Ripple</RaisedButton>
+          <RaisedButton icon='search' color='#ff4081' ripple onClick={noop}>Label</RaisedButton>
         </LeftPackedRow>
 
         <h3>Disabled</h3>
         <LeftPackedRow>
-          <RaisedButton disabled>Disabled</RaisedButton>
+          <RaisedButton disabled>Label</RaisedButton>
           <Space/>
-          <RaisedButton icon='language' disabled>Disabled</RaisedButton>
+          <RaisedButton icon='language' disabled>Label</RaisedButton>
         </LeftPackedRow>
       </div>
     )
