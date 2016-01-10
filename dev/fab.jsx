@@ -20,7 +20,7 @@ export default class FabPage extends React.Component {
         <Fab color='#ff4081' ripple onClick={noop}>mode_edit</Fab>
 
         <h3>Disabled</h3>
-        <Fab enabled={false} onClick={noop}>cloud</Fab>
+        <Fab disabled onClick={noop}>cloud</Fab>
       </div>
     )
   }

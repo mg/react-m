@@ -6,26 +6,25 @@ import styles from './styles.js'
 
 export class Fab extends React.Component {
   static propTypes= {
-    enabled: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
     color: React.PropTypes.string,
     ripple: React.PropTypes.bool,
     onClick: React.PropTypes.func.isRequired,
   }
 
   static defaultProps= {
-    enabled: true,
     color: '#000',
     ripple: false,
   }
 
   render() {
-    const { enabled, color, ripple, children }= this.props
+    const { disabled, color, ripple, children }= this.props
 
     let styleButton= {...styles.button}
     let styleBase= {...styles.buttonBase}
     styleButton.color= color
     let rippleColor= color
-    if(color !== '#000' && enabled) {
+    if(color !== '#000' && !disabled) {
       let c= Color(color)
       c.alpha(0.9).lighten(0.1)
       if(ripple !== true) styleButton[':focus'].backgroundColor= c.rgbString()
@@ -35,7 +34,7 @@ export class Fab extends React.Component {
       rippleColor= rc.rgbString()
     }
 
-    if(!enabled) {
+    if(disabled) {
       delete styleButton[':active']
       delete styleButton[':focus']
       delete styleButton[':hover']
