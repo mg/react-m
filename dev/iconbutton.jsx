@@ -1,6 +1,5 @@
 import React from 'react'
 import { IconButton } from '../src'
-import { SpreadRow } from './layouts.jsx'
 
 const noop= () => {}
 
@@ -8,25 +7,21 @@ export default class IconButtonPage extends React.Component {
   render() {
     return (
       <div>
-        <h3>Icon buttons</h3>
-        <SpreadRow>
-          <IconContainer><IconButton onClick={noop}>mood</IconButton></IconContainer>
-          <IconContainer><IconButton ripple={true} onClick={noop}>face</IconButton></IconContainer>
-          <IconContainer><IconButton color='#3f51b5' onClick={noop}>lock</IconButton></IconContainer>
-          <IconContainer><IconButton color='#ff4081' ripple={true} onClick={noop}>home</IconButton></IconContainer>
-          <IconContainer><IconButton enabled={false} onClick={noop}>thumb_up</IconButton></IconContainer>
-        </SpreadRow>
+        <h3>Normal</h3>
+        <IconButton onClick={noop}>mood</IconButton>
+
+        <h3>Ripple</h3>
+        <IconButton ripple={true} onClick={noop}>face</IconButton>
+
+        <h3>Color</h3>
+        <IconButton color='#3f51b5' onClick={noop}>lock</IconButton>
+
+        <h3>Color and ripple</h3>
+        <IconButton color='#ff4081' ripple={true} onClick={noop}>home</IconButton>
+
+        <h3>Disabled</h3>
+        <IconButton enabled={false} onClick={noop}>thumb_up</IconButton>
       </div>
     )
   }
 }
-
-const FabContainer= ({children}) =>
-  <div style={{padding: '0 15px'}}>
-    {children}
-  </div>
-
-const IconContainer= ({children}) =>
-  <div style={{padding: '0 25px'}}>
-    {children}
-  </div>
