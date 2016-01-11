@@ -50,6 +50,7 @@ export class RadioButton extends React.Component {
           value={value}
           checked={value === selected}
           tabIndex={-1}
+          onChange={() => {}}
           readOnly={disabled}
           />
         {markupFocus}
