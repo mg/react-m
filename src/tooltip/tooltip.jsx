@@ -27,16 +27,17 @@ export class Tooltip extends React.Component {
       styleTooltip= {...styleTooltip, ...styles.tooltipCalced}
       switch(align) {
         case 'top':
-        styleTooltip= {...styleTooltip, bottom: dimContainer.height + margin, left: dimContainer.width-dimTooltip.width}
+        console.log(dimContainer.width)
+        styleTooltip= {...styleTooltip, bottom: dimContainer.height + margin, left: (dimContainer.width-dimTooltip.width - styleTooltip.padding) / 2 }
         break
         case 'bottom':
-        styleTooltip= {...styleTooltip, top: dimContainer.height + margin, left: dimContainer.width-dimTooltip.width}
+        styleTooltip= {...styleTooltip, top: dimContainer.height + margin, left: (dimContainer.width-dimTooltip.width) / 2 - styleTooltip.padding}
         break
         case 'left':
-        styleTooltip= {...styleTooltip, top: (dimContainer.height - dimTooltip.height - 6), left: -dimTooltip.width - dimContainer.width/2 - margin}
+        styleTooltip= {...styleTooltip, top: (dimContainer.height - dimTooltip.height - styleTooltip.padding * 2) / 2, left: -dimTooltip.width - styleTooltip.padding * 2 - margin}
         break
         case 'right':
-        styleTooltip= {...styleTooltip, top: (dimContainer.height - dimTooltip.height - 6), right: -(dimContainer.width + dimContainer.width + margin)}
+        styleTooltip= {...styleTooltip, top: (dimContainer.height - dimTooltip.height - styleTooltip.padding * 2) / 2, left: dimContainer.width + margin}
       }
     } else {
       styleTooltip= {...styleTooltip, ...styles.tooltipHide}
@@ -47,12 +48,14 @@ export class Tooltip extends React.Component {
     }
 
     return (
-      <div style={styles.container} ref={e => this.container= e}>
+      <div style={styles.container}>
         <div
           onMouseMove={::this.onMouseMove}
           onMouseLeave={::this.onMouseLeave}
           >
-          {children}
+          <div ref={e => this.container= e}>
+            {children}
+          </div>
         </div>
         <div style={styleTooltip} ref={e => this.tooltip= e}>
           {tooltip}
@@ -61,21 +64,19 @@ export class Tooltip extends React.Component {
     )
   }
 
-  componentDidMount() {
-    const padding= styles.tooltipCalced.padding
-    this.dimTooltip= {
-      width: this.tooltip.scrollWidth + padding - padding / 2,
-      height: this.tooltip.scrollHeight + padding + padding / 2,
-    }
-    this.forceUpdate()
-  }
-
   onMouseMove() {
-    if(this.dimContainer === undefined) {
-      this.dimContainer= {
-        width: this.container.scrollWidth,
-        height: this.container.scrollHeight,
+    if(this.dimTooltip === undefined) {
+      const rectTooltip= this.tooltip.getBoundingClientRect()
+      this.dimTooltip= {
+        width: rectTooltip.width,
+        height: rectTooltip.height,
       }
+
+      const rectContainer= this.container.getBoundingClientRect()
+      this.dimContainer= {
+        width: rectContainer.width,
+        height: rectContainer.height,
+      }      
     }
     this.setState({show: true})
   }

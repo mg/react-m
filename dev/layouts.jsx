@@ -6,7 +6,7 @@ const SpreadRow= ({children}) =>
   </div>
 
 const LeftPackedRow= ({children}) =>
-  <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+  <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
     {children}
   </div>
 
