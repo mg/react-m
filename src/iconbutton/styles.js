@@ -34,7 +34,6 @@ export default {
     color: '#757575',
     fontWeight: 300,
     cursor: 'pointer',
-    fontSize: 10,
     fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
     WebkitTapHighlightColor: 'rgba(255,255,255,0)',
   },
@@ -45,7 +44,7 @@ export default {
   },
 
   disabledLabel: {
-    cursor: 'text',
+    cursor: 'default',
     color: 'rgba(0,0,0,.26)',
   },
 

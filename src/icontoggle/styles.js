@@ -65,7 +65,7 @@ export default {
   },
 
   disabledLabel: {
-    cursor: 'text',
+    cursor: 'default',
     color: 'rgba(0,0,0,.26)',
   },
 
