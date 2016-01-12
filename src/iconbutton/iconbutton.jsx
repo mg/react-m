@@ -60,7 +60,7 @@ export class IconButton extends React.Component {
     var markupRipple
     if(ripple) {
       delete styleButton[':active']
-      markupRipple= <Ripple color={rippleColor} container={styles.ripple}/>
+      markupRipple= <Ripple color={rippleColor} container={styles.ripple} ref={e => this.ripple= e}/>
     }
 
     return (
@@ -87,6 +87,9 @@ export class IconButton extends React.Component {
     e.preventDefault()
     if(e.keyCode === 32) {
       this.props.onClick()
+      if(this.ripple) {
+        this.ripple.onKeyUp(e)
+      }
     }
   }
 
