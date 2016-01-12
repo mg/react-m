@@ -56,12 +56,13 @@ export class FlatButton extends React.Component {
 
     var markupRipple
     if(ripple)
-      markupRipple= <Ripple center={false} color={rippleColor} container={styles.ripple}/>
+      markupRipple= <Ripple center={false} color={rippleColor} container={styles.ripple} ref={e => this.ripple= e}/>
 
     return (
       <button
         style={styleButton}
         onClick={::this.onClick}
+        onKeyUp={::this.onKeyUp}
         onMouseLeave={::this.onMouseLeave}
         ref={e => this.button= e}
         >
@@ -79,6 +80,12 @@ export class FlatButton extends React.Component {
 
   onMouseLeave() {
     this.button.blur()
+  }
+
+  onKeyUp(e) {
+    if(e.keyCode === 32 && this.ripple) {
+      this.ripple.onKeyUp(e)
+    }
   }
 }
 
