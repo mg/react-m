@@ -42,12 +42,31 @@ export default {
     boxShadow: '0 0 0 8px rgba(63,81,181,.26)',
   },
 
+  labelContainer: {
+    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+
+  label: {
+    color: '#757575',
+    fontWeight: 300,
+    cursor: 'pointer',
+    fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
+    WebkitTapHighlightColor: 'rgba(255,255,255,0)',
+  },
+
   containerDisabled: {
     cursor: 'default',
   },
 
   linkDisabled: {
     cursor: 'default',
+  },
+
+  disabledLabel: {
+    cursor: 'text',
+    color: 'rgba(0,0,0,.26)',
   },
 
   ripple: {

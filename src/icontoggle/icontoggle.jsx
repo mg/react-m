@@ -8,6 +8,7 @@ import styles from './styles.js'
 export class IconToggle extends React.Component {
   static propTypes= {
     value: React.PropTypes.bool,
+    label: React.PropTypes.string,
     ripple: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
     onChange: React.PropTypes.func.isRequired,
@@ -23,7 +24,7 @@ export class IconToggle extends React.Component {
   }
 
   render() {
-    const { value, ripple, disabled, autoId, size, colorOn, colorOff, children }= this.props
+    const { value, label, ripple, disabled, autoId, size, colorOn, colorOff, children }= this.props
 
     let container= styles.container
     let link= styles.link
@@ -34,6 +35,14 @@ export class IconToggle extends React.Component {
       container= {...container, ...styles.containerDisabled}
       link= {...link, ...styles.linkDisabled}
       color= 'rgba(0,0,0,.26)'
+    }
+
+    var markupLabel
+    if(label) {
+      let styleLabelContainer= {...styles.labelContainer, top: size}
+      let styleLabel= { ...styles.label, fontSize: size * 0.4, color: color }
+      if(disabled) styleLabel= {...styleLabel, ...styles.disabledLabel}
+      markupLabel= <div style={styleLabelContainer}><label style={styleLabel}>{label}</label></div>
     }
 
     var markupRipple
@@ -67,6 +76,7 @@ export class IconToggle extends React.Component {
           <Icon size={size} color={color}>{children}</Icon>
           <span style={focus}/>
           {markupRipple}
+          {markupLabel}
         </a>
       </div>
     )
