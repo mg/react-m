@@ -73,7 +73,7 @@ export class RaisedButton extends React.Component {
     if(ripple) {
       delete styleButton[':active']
       delete styleButton[':focus'].backgroundColor
-      markupRipple= <Ripple center={false} color={rippleColor} container={styles.ripple}/>
+      markupRipple= <Ripple center={false} color={rippleColor} container={styles.ripple} ref={e => this.ripple = e}/>
     } else if(color === '#000') {
       delete styleButton[':focus'].backgroundColor
     }
@@ -82,6 +82,7 @@ export class RaisedButton extends React.Component {
       <button
         style={styleButton}
         onClick={::this.onClick}
+        onKeyUp={::this.onKeyUp}
         onMouseLeave={::this.onEnd}
         onMouseUp={::this.onEnd}
         onTouchEnd={::this.onEnd}
@@ -101,6 +102,12 @@ export class RaisedButton extends React.Component {
 
   onEnd() {
     this.button.blur()
+  }
+
+  onKeyUp(e) {
+    if(e.keyCode === 32 && this.ripple) {
+      this.ripple.onKeyUp(e)
+    }
   }
 }
 
