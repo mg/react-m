@@ -67,7 +67,7 @@ export class Ripple extends React.Component {
     const bound = e.currentTarget.getBoundingClientRect()
 
     // Check if we are handling a keyboard click.
-    if (center || (e.clientX === 0 && e.clientY === 0)) {
+    if (center || (e.clientX === undefined && e.clientY === undefined)) {
       this.data.x= Math.round(bound.width / 2)
       this.data.y= Math.round(bound.height / 2)
     } else {
@@ -99,6 +99,11 @@ export class Ripple extends React.Component {
     }
   }
 
+  onKeyUp(e) {
+    this.onStart(e)
+    setTimeout(() => this.onEnd(e), 200)
+  }
+  
   constructor() {
     super()
     this.state= {
