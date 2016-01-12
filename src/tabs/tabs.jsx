@@ -4,50 +4,68 @@ import Color from 'color'
 import Ripple from '../ripple'
 import styles from './styles.js'
 
-const Tab= ({
-  tab, id, text, selected, isDisabled, fixed, ripple, onClick,
-  colorText, colorBackground, colorSelected, colorTextUnselected
-}) => {
-  let styleTab= {...styles.tab, ...styles.transition, backgroundColor: colorBackground, borderBottom: `2px solid ${colorBackground}`}
-  let styleLink= {...styles.link, ...styles.transition, color: colorTextUnselected}
+class Tab extends React.Component {
+  render() {
+    let {
+      tab, id, text, selected, isDisabled, fixed, ripple, onClick,
+      colorText, colorBackground, colorSelected, colorTextUnselected
+    }= this.props
 
-  if(fixed) {
-    styleTab= {...styleTab, ...styles.tabFixed}
-  } else {
-    styleTab= {...styleTab, ...styles.tabScrollable}
+    let styleTab= {...styles.tab, ...styles.transition, backgroundColor: colorBackground, borderBottom: `2px solid ${colorBackground}`}
+    let styleLink= {...styles.link, ...styles.transition, color: colorTextUnselected}
+
+    if(fixed) {
+      styleTab= {...styleTab, ...styles.tabFixed}
+    } else {
+      styleTab= {...styleTab, ...styles.tabScrollable}
+    }
+
+    if(id(tab) === id(selected)) {
+      styleTab= {...styleTab, ...styles.tabSelected, borderBottom: `2px solid ${colorSelected}`}
+      styleLink= {...styleLink, color: colorText}
+    } else if(isDisabled(tab)) {
+      styleTab= {...styleTab, ...styles.tabDisabled}
+      if(onClick !== undefined) onClick= () => {}
+    }
+
+    var markupRipple
+    if(ripple) {
+      markupRipple= <Ripple center={false} color={'white'} container={styles.ripple}/>
+    }
+
+    if(onClick === undefined) {
+      return (
+        <li style={styleTab}>
+          <a style={styleLink} href={id(tab)} onKeyUp={::this.onKeyUp}>
+            {markupRipple}
+            {text(tab)}
+          </a>
+        </li>
+      )
+    } else {
+      return (
+        <li style={styleTab}>
+          <a style={styleLink} href='#' onClick={::this.onClick} onKeyUp={::this.onKeyUp}>
+            {markupRipple}
+            {text(tab)}
+          </a>
+        </li>
+      )
+    }
   }
 
-  if(id(tab) === id(selected)) {
-    styleTab= {...styleTab, ...styles.tabSelected, borderBottom: `2px solid ${colorSelected}`}
-    styleLink= {...styleLink, color: colorText}
-  } else if(isDisabled(tab)) {
-    styleTab= {...styleTab, ...styles.tabDisabled}
-    if(onClick !== undefined) onClick= () => {}
+  onClick(e) {
+    const { onClick, tab }= this.props
+    e.preventDefault()
+    onClick(tab)
   }
 
-  var markupRipple
-  if(ripple) {
-    markupRipple= <Ripple center={false} color={'white'} container={styles.ripple}/>
-  }
-
-  if(onClick === undefined) {
-    return (
-      <li style={styleTab}>
-        <a style={styleLink} href={id(tab)}>
-          {markupRipple}
-          {text(tab)}
-        </a>
-      </li>
-    )
-  } else {
-    return (
-      <li style={styleTab}>
-        <a style={styleLink} href='#' onClick={e => {e.preventDefault(); onClick(tab)}}>
-          {markupRipple}
-          {text(tab)}
-        </a>
-      </li>
-    )
+  onKeyUp(e) {
+    const { onClick, tab }= this.props
+    e.preventDefault()
+    if(e.keyCode === 32) {
+      if(onClick) onClick(tab)
+    }
   }
 }
 
