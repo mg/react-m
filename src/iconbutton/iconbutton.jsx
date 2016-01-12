@@ -7,19 +7,22 @@ import styles from './styles.js'
 
 export class IconButton extends React.Component {
   static propTypes= {
+    label: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     color: React.PropTypes.string,
     ripple: React.PropTypes.bool,
+    size: React.PropTypes.number,
     onClick: React.PropTypes.func.isRequired,
   }
 
   static defaultProps= {
     color: '#000',
     ripple: false,
+    size: 24,
   }
 
   render() {
-    const { icon, disabled, color, ripple, children }= this.props
+    const { label, size, disabled, color, ripple, children }= this.props
 
     let styleButton= {...styles.button}
 
@@ -32,6 +35,13 @@ export class IconButton extends React.Component {
       rippleColor= rc.rgbString()
     }
 
+    var markupLabel
+    if(label) {
+      let styleLabelContainer= {...styles.labelContainer, top: size + styleButton.padding * 2}
+      let styleLabel= { ...styles.label, fontSize: size * 0.4, color: color }
+      if(disabled) styleLabel= {...styleLabel, ...styles.disabledLabel}
+      markupLabel= <div style={styleLabelContainer}><label style={styleLabel}>{label}</label></div>
+    }
     if(disabled) {
       delete styleButton[':active']
       delete styleButton[':hover']
@@ -41,7 +51,8 @@ export class IconButton extends React.Component {
           style={[styleButton, styles.disabled]}
           disabled
           >
-          <Icon>{children}</Icon>
+          <Icon size={size}>{children}</Icon>
+          {markupLabel}
         </button>
       )
     }
@@ -60,8 +71,9 @@ export class IconButton extends React.Component {
         onMouseLeave={::this.onMouseLeave}
         ref={e => this.button= e}
         >
-        <Icon color={color}>{children}</Icon>
+        <Icon size={size} color={color}>{children}</Icon>
         {markupRipple}
+        {markupLabel}
       </button>
     )
   }

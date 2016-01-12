@@ -1,5 +1,6 @@
 export default {
   button: {
+    position: 'relative',
     borderRadius: '50%',
     outline: 'none',
     backgroundColor: 'initial',
@@ -23,9 +24,29 @@ export default {
     },
   },
 
+  labelContainer: {
+    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+
+  label: {
+    color: '#757575',
+    fontWeight: 300,
+    cursor: 'pointer',
+    fontSize: 10,
+    fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
+    WebkitTapHighlightColor: 'rgba(255,255,255,0)',
+  },
+
   disabled: {
     color: 'rgba(0,0,0,.26)',
     cursor: 'default',
+  },
+
+  disabledLabel: {
+    cursor: 'text',
+    color: 'rgba(0,0,0,.26)',
   },
 
   ripple: {
