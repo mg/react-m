@@ -1,20 +1,14 @@
 export default {
   container: {
     position: 'relative',
-    width: 24,
-    height: 24,
     cursor: 'pointer',
+    display: 'inline-block',
   },
 
   link: {
-    color: '#616161',
     display: 'block',
     outline: 'none',
     textDecoration: 'none',
-  },
-
-  linkOn: {
-    color: '#3f51b5',
   },
 
   input: {
@@ -32,7 +26,6 @@ export default {
     position: 'absolute',
     top: 4,
     left: 4,
-    display: 'inline-block',
     boxSizing: 'border-box',
     width: 16,
     height: 16,

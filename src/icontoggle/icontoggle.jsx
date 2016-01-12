@@ -11,21 +11,29 @@ export class IconToggle extends React.Component {
     ripple: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
     onChange: React.PropTypes.func.isRequired,
+    colorOn: React.PropTypes.string,
+    colorOff: React.PropTypes.string,
+    size: React.PropTypes.number,
+  }
+
+  static defaultProps= {
+    colorOn: '#3f51b5',
+    colorOff: '#616161',
+    size: 24,
   }
 
   render() {
-    const { value, ripple, disabled, autoId, children }= this.props
+    const { value, ripple, disabled, autoId, size, colorOn, colorOff, children }= this.props
 
     let container= styles.container
     let link= styles.link
 
-    if(value && !disabled) {
-      link= {...link, ...styles.linkOn}
-    }
+    let color= value ? colorOn : colorOff
 
     if(disabled) {
       container= {...container, ...styles.containerDisabled}
       link= {...link, ...styles.linkDisabled}
+      color= 'rgba(0,0,0,.26)'
     }
 
     var markupRipple
@@ -38,6 +46,7 @@ export class IconToggle extends React.Component {
       focus= {...focus, ...styles.focusOn}
     }
 
+
     return (
       <div style={container}>
         <input
@@ -46,7 +55,7 @@ export class IconToggle extends React.Component {
           value={value}
           style={[styles.input]}
           tabIndex={-1}
-          onChange={::this.onChange}
+          onChange={() => {}}
           />
         <a
           href='#'
@@ -55,7 +64,7 @@ export class IconToggle extends React.Component {
           onKeyUp={::this.onKeyUp}
           onFocus={::this.onFocus}
           onBlur={::this.onBlur}>
-          <Icon color={disabled ? 'rgba(0,0,0,.26)' : undefined}>{children}</Icon>
+          <Icon size={size} color={color}>{children}</Icon>
           <span style={focus}/>
           {markupRipple}
         </a>
