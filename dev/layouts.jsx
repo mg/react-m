@@ -13,4 +13,7 @@ const LeftPackedRow= ({children}) =>
 const Space= () =>
   <div style={{marginRight: 20}}/>
 
-export { SpreadRow, LeftPackedRow, Space }
+const DoubleSpace= () =>
+  <div style={{marginRight: 40}}/>
+
+export { SpreadRow, LeftPackedRow, Space, DoubleSpace }
