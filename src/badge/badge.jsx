@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import Icon from '../icon'
 import styles from './styles.js'
 
 export class Badge extends React.Component {
@@ -8,7 +9,8 @@ export class Badge extends React.Component {
     icon: React.PropTypes.bool,
     onIcon: React.PropTypes.bool,
     color: React.PropTypes.string,
-    align: React.PropTypes.oneOf(['left', 'right'])
+    align: React.PropTypes.oneOf(['left', 'right']),
+    size: React.PropTypes.number,
   }
 
   static defaultProps= {
@@ -16,14 +18,17 @@ export class Badge extends React.Component {
     onIcon: false,
     align: 'right',
     color: '#ff4081',
+    size: 12,
   }
 
   render() {
-    const { value, icon, onIcon, color, align, children }= this.props
+    const { value, icon, onIcon, color, align, size, children }= this.props
 
     let styleBadge= {...styles.badge, backgroundColor: color}
+
+    let markup= value
     if(icon) {
-      styleBadge= {...styleBadge, ...styles.icon}
+      markup= <Icon color='#fff' size={size}>{value}</Icon>
     }
 
     if(onIcon) {
@@ -43,7 +48,7 @@ export class Badge extends React.Component {
       <span style={styles.container}>
         {children}
         <div style={styleBadge}>
-          {value}
+          {markup}
         </div>
       </span>
     )
