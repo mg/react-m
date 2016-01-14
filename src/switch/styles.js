@@ -1,24 +1,22 @@
 export default {
   container: {
-    position: 'relative',
-    display: 'flex',
+    display: 'inline-block',
     cursor: 'pointer',
   },
 
+  innerContainer: {
+    position: 'relative',
+    display: 'flex',
+  },
+
   link: {
-    color: '#616161',
     display: 'block',
     width: 37,
     height: '100%',
     outline: 'none',
   },
 
-  linkOn: {
-    color: '#3f51b5',
-  },
-
   track: {
-    background: 'rgba(0,0,0,.26)',
     position: 'absolute',
     left: 0,
     top: 5,
@@ -28,12 +26,7 @@ export default {
     cursor: 'pointer',
   },
 
-  trackOn: {
-    background: 'rgba(63,81,181,.5)',
-  },
-
   thumb: {
-    background: '#fafafa',
     position: 'absolute',
     left: 0,
     top: 1,
@@ -45,10 +38,12 @@ export default {
     transitionDuration: '.28s',
     transitionTimingFunction: 'cubic-bezier(.4,0,.2,1)',
     transitionProperty: 'left',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   thumbOn: {
-    background: '#3f51b5',
     left: 16,
     boxShadow: '0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.12)',
   },
@@ -65,12 +60,9 @@ export default {
   },
 
   label: {
-    color: '#757575',
     fontWeight: 400,
     paddingLeft: 10,
     cursor: 'pointer',
-    fontSize: 16,
-    lineHeight: '24px',
     fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
     WebkitTapHighlightColor: 'rgba(255,255,255,0)',
   },
@@ -91,11 +83,6 @@ export default {
     transitionDuration: '.28s',
     transitionTimingFunction: 'cubic-bezier(.4,0,.2,1)',
     transitionProperty: 'background-color box-shadow',
-  },
-
-  focusOn: {
-    backgroundColor: 'rgba(63,81,181,.26)',
-    boxShadow: '0 0 0 8px rgba(63,81,181,.26)',
   },
 
   containerDisabled: {

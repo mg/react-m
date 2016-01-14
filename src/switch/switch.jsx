@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
-import { AutoId } from 'react-autoid'
 import Ripple from '../ripple'
+import Icon from '../icon'
 import styles from './styles.js'
 
 export class Switch extends React.Component {
@@ -10,21 +10,53 @@ export class Switch extends React.Component {
     ripple: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
     onChange: React.PropTypes.func.isRequired,
+
+    size: React.PropTypes.number,
+
+    onIcon: React.PropTypes.string,
+    offIcon: React.PropTypes.string,
+
+    thumbColorOn: React.PropTypes.string,
+    thumbColorOff: React.PropTypes.string,
+    trackColorOn: React.PropTypes.string,
+    trackColorOff: React.PropTypes.string,
+    iconColorOn: React.PropTypes.string,
+    iconColorOff: React.PropTypes.string,
+    labelColor: React.PropTypes.string,
+    focusColor: React.PropTypes.string,
+  }
+
+  static defaultProps= {
+    size: 16,
+    thumbColorOn: '#3f51b5',
+    thumbColorOff: '#fafafa',
+    trackColorOn: 'rgba(63, 81, 181, 0.498039)',
+    trackColorOff: 'rgba(0,0,0,.26)',
+    iconColorOn: '#fff',
+    iconColorOff: '#333',
+    labelColor: '#757575',
+    focusColor: 'rgba(63,81,181,.26)',
   }
 
   render() {
-    const { value, ripple, disabled, autoId, children }= this.props
+    const {
+      value, ripple, disabled, size,
+      thumbColorOn, thumbColorOff, trackColorOn, trackColorOff,
+      onIcon, offIcon, iconColorOn, iconColorOff,
+      focusColor, labelColor,
+      children
+    }= this.props
 
     let container= styles.container
     let link= styles.link
-    let track= styles.track
-    let thumb= styles.thumb
-    let label= styles.label
+    let track= {...styles.track, background: trackColorOff}
+    let thumb= {...styles.thumb, background: thumbColorOff}
+    let label= {...styles.label, color: labelColor, fontSize: size, marginTop: 2}
 
     if(value) {
-      link= {...link, ...styles.linkOn}
-      track= {...track, ...styles.trackOn}
-      thumb= {...thumb, ...styles.thumbOn}
+      track= {...track, background: trackColorOn}
+      delete thumb.left
+      thumb= {...thumb, ...styles.thumbOn, background: thumbColorOn}
     }
 
     if(disabled) {
@@ -35,44 +67,58 @@ export class Switch extends React.Component {
       label= {...label, ...styles.labelDisabled}
     }
 
+    var markupIcon
+    if(onIcon) {
+      if(!value && offIcon) {
+        markupIcon= <Icon color={iconColorOff} size={size}>{offIcon}</Icon>
+      } else if(!value) {
+        markupIcon= <Icon color={iconColorOff} size={size}>{onIcon}</Icon>
+      } else {
+        markupIcon= <Icon color={iconColorOn} size={size}>{onIcon}</Icon>
+      }
+    }
+
     var markupRipple
     if(ripple) {
-      markupRipple= <Ripple center={false} color={'#3f51b5'} container={styles.ripple}/>
+      markupRipple= <Ripple center={false} color={thumbColorOn} container={styles.ripple}/>
     }
 
     var focus= styles.focus
     if(this.state.focused) {
-      focus= {...focus, ...styles.focusOn}
+      focus= {...focus, backgroundColor: focusColor, boxShadow: `0 0 0 8px ${focusColor}`,}
     }
 
     return (
       <div style={container}>
-        <input
-          type='checkbox'
-          id={autoId}
-          value={value}
-          style={[styles.input]}
-          tabIndex={-1}
-          onChange={::this.onChange}
-          />
-        <a
-          href='#'
-          style={link}
-          onClick={::this.onClick}
-          onKeyUp={::this.onKeyUp}
-          onFocus={::this.onFocus}
-          onBlur={::this.onBlur}>
-          <div style={track}/>
-          <div style={thumb}/>
-          <span style={focus}/>
-          {markupRipple}
-        </a>
-        <label
-          style={label}
-          onClick={::this.onClick}
-          >
-          {children}
-        </label>
+        <div style={styles.innerContainer}>
+          <input
+            type='checkbox'
+            value={value}
+            style={[styles.input]}
+            tabIndex={-1}
+            onChange={::this.onChange}
+            />
+          <a
+            href='#'
+            style={link}
+            onClick={::this.onClick}
+            onKeyUp={::this.onKeyUp}
+            onFocus={::this.onFocus}
+            onBlur={::this.onBlur}>
+            <div style={track}/>
+            <div style={thumb}>
+              {markupIcon}
+            </div>
+            <span style={focus}/>
+            {markupRipple}
+          </a>
+          <label
+            style={label}
+            onClick={::this.onClick}
+            >
+            {children}
+          </label>
+        </div>
       </div>
     )
   }
@@ -123,4 +169,4 @@ export class Switch extends React.Component {
   state= {}
 }
 
-export default AutoId(Radium(Switch))
+export default Radium(Switch)
