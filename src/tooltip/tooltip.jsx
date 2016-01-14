@@ -53,7 +53,7 @@ export class Tooltip extends React.Component {
           onMouseMove={::this.onMouseMove}
           onMouseLeave={::this.onMouseLeave}
           >
-          <div ref={e => this.container= e}>
+          <div ref={e => this.container= e} onFocus={::this.onMouseMove} onBlur={::this.onMouseLeave}>
             {children}
           </div>
         </div>
@@ -64,7 +64,7 @@ export class Tooltip extends React.Component {
     )
   }
 
-  onMouseMove() {
+  calcDimentions() {
     if(this.dimTooltip === undefined) {
       const rectTooltip= this.tooltip.getBoundingClientRect()
       this.dimTooltip= {
@@ -76,8 +76,12 @@ export class Tooltip extends React.Component {
       this.dimContainer= {
         width: rectContainer.width,
         height: rectContainer.height,
-      }      
+      }
     }
+  }
+
+  onMouseMove() {
+    this.calcDimentions()
     this.setState({show: true})
   }
 
