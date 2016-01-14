@@ -27,7 +27,6 @@ export class Tooltip extends React.Component {
       styleTooltip= {...styleTooltip, ...styles.tooltipCalced}
       switch(align) {
         case 'top':
-        console.log(dimContainer.width)
         styleTooltip= {...styleTooltip, bottom: dimContainer.height + margin, left: (dimContainer.width-dimTooltip.width - styleTooltip.padding) / 2 }
         break
         case 'bottom':
