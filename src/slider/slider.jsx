@@ -11,10 +11,30 @@ export class Slider extends React.Component {
     step: React.PropTypes.number,
     disabled: React.PropTypes.bool,
     onChange: React.PropTypes.func.isRequired,
+
+    thumbColor: React.PropTypes.string,
+    thumbHighlightColor: React.PropTypes.string,
+    trackOnColor: React.PropTypes.string,
+    trackOffColor: React.PropTypes.string,
+    thumbColorDisabled: React.PropTypes.string,
+    trackColorDisabled: React.PropTypes.string,
+  }
+
+  static defaultProps= {
+    thumbColor: '#3f51b5',
+    thumbHighlightColor: 'rgba(63,81,181,.26)',
+    trackOnColor: '#3f51b5',
+    trackOffColor: 'rgba(0,0,0,.26)',
+    thumbColorDisabled: '#757575',
+    trackColorDisabled: 'rgba(0,0,0,.26)',
   }
 
   render() {
-    let { min, max, value, disabled, ripple, onChange }= this.props
+    let {
+      min, max, value, disabled, ripple, onChange,
+      thumbColor, thumbHighlightColor,
+      trackOnColor, trackOffColor, thumbColorDisabled, trackColorDisabled,
+    }= this.props
 
     if(value === undefined) {
       value= (max - min) / 2
@@ -22,18 +42,23 @@ export class Slider extends React.Component {
 
     var markupSliderLower
     var markupSliderHigher
-    var markupTracker
+    var markupThumb
     if(this.state.width !== undefined) {
       const x= this.xFromValue(value)
       const percent= (x - this.state.left) / this.state.width
 
       var markupMouseTracker
-      let stylesTracker= {...styles.tracker, left: x - this.state.left - styles.tracker.width / 2}
+      let stylesThumb= {
+        ...styles.thumb,
+        left: x - this.state.left - styles.thumb.width / 2,
+        backgroundColor: thumbColor
+      }
+
       if(disabled) {
-        stylesTracker= {...stylesTracker, ...styles.disabledTracker}
+        stylesThumb= {...stylesThumb, ...styles.disabledThumb, backgroundColor: thumbColorDisabled}
       }
       if(this.state.track) {
-        stylesTracker= {...stylesTracker, ...styles.trackerOn}
+        stylesThumb= {...stylesThumb, ...styles.thumbOn}
         markupMouseTracker= (
           <div
             style={styles.mouseTracker}
@@ -43,12 +68,12 @@ export class Slider extends React.Component {
             />
         )
       }
-      let stylesLower= {...styles.backgroundLower, width: percent * this.state.width}
-      let stylesHigher= {...styles.backgroundHigher,  width: (1 - percent) * this.state.width}
+      let stylesLower= {...styles.trackLower, width: percent * this.state.width, background: trackOnColor}
+      let stylesHigher= {...styles.trackHigher,  width: (1 - percent) * this.state.width, background: trackOffColor}
 
       if(disabled) {
-        stylesLower= {...stylesLower, ...styles.disabledBackgroundLower}
-        stylesHigher= {...stylesHigher, ...styles.disabledBackgroundHigher}
+        stylesLower= {...stylesLower, ...styles.disabledTrackLower, background: trackColorDisabled}
+        stylesHigher= {...stylesHigher, ...styles.disabledTrackHigher, background: trackColorDisabled}
       }
 
       markupSliderLower= <div style={stylesLower} onMouseDown={e => e.preventDefault()}/>
@@ -56,10 +81,14 @@ export class Slider extends React.Component {
 
       let focus= {...styles.focus, left: x - this.state.left - styles.focus.width / 2}
       if(this.state.focused && !this.state.track) {
-        focus= {...focus, ...styles.focusOn}
+        focus= {
+          ...focus,
+          backgroundColor: thumbHighlightColor,
+          boxShadow: `0 0 0 8px ${thumbHighlightColor}`,
+        }
       }
 
-      markupTracker= (
+      markupThumb= (
         <a href='#'
           onClick={e => e.preventDefault()}
           onKeyDown={::this.onKeyDown}
@@ -67,7 +96,7 @@ export class Slider extends React.Component {
           onBlur={::this.onBlur}
           >
           <div
-            style={stylesTracker}
+            style={stylesThumb}
             onMouseDown={::this.onTrackStart}
             />
           <div style={focus}/>
@@ -97,7 +126,7 @@ export class Slider extends React.Component {
           {markupSliderLower}
           {markupSliderHigher}
         </div>
-        {markupTracker}
+        {markupThumb}
       </div>
     )
   }
@@ -180,7 +209,7 @@ export class Slider extends React.Component {
     if(step !== undefined) {
       let remainder= value % step
       if(remainder !== 0) {
-        let div= Math.floor(value / step);
+        let div= Math.floor((value + step/2) / step);
         if(remainder > step) return (div * step) + 1
         return div * step
       }
