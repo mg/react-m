@@ -3,9 +3,6 @@ export default {
     background: '0 0',
     height: 18,
     position: 'relative',
-    margin: '0 20px',
-    width: '30vw',
-    maxWidth: 260,
   },
 
   slider: {
@@ -89,7 +86,7 @@ export default {
   },
 
   disabledBackground: {
-    cursor: 'text',    
+    cursor: 'text',
   },
 
   disabledBackgroundLower: {
