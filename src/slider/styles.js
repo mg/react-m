@@ -1,7 +1,7 @@
 export default {
   container: {
     background: '0 0',
-    height: 18,
+    minHeight: 18,
     position: 'relative',
   },
 
@@ -47,12 +47,13 @@ export default {
     cursor: 'pointer',
     position: 'absolute',
     marginTop: 2,
-    marginLeft: 0,
-    top: 0,
     width: 16,
     height: 16,
     borderRadius: '50%',
     transition: 'top .2s cubic-bezier(.4,0,.2,1), margin-left .2s cubic-bezier(.4,0,.2,1), width .2s cubic-bezier(.4,0,.2,1), height .2s cubic-bezier(.4,0,.2,1)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   thumbOn: {

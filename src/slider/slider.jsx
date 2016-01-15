@@ -1,6 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import Ripple from '../ripple'
+import Icon from '../icon'
 import styles from './styles.js'
 
 export class Slider extends React.Component {
@@ -12,6 +13,9 @@ export class Slider extends React.Component {
     disabled: React.PropTypes.bool,
     onChange: React.PropTypes.func.isRequired,
 
+    icon: React.PropTypes.string,
+    size: React.PropTypes.number,
+
     thumbColor: React.PropTypes.string,
     thumbHighlightColor: React.PropTypes.string,
     trackOnColor: React.PropTypes.string,
@@ -21,6 +25,7 @@ export class Slider extends React.Component {
   }
 
   static defaultProps= {
+    size: 10,
     thumbColor: '#3f51b5',
     thumbHighlightColor: 'rgba(63,81,181,.26)',
     trackOnColor: '#3f51b5',
@@ -32,7 +37,7 @@ export class Slider extends React.Component {
   render() {
     let {
       min, max, value, disabled, ripple, onChange,
-      thumbColor, thumbHighlightColor,
+      icon, size, thumbColor, thumbHighlightColor,
       trackOnColor, trackOffColor, thumbColorDisabled, trackColorDisabled,
     }= this.props
 
@@ -59,6 +64,7 @@ export class Slider extends React.Component {
       }
       if(this.state.track) {
         stylesThumb= {...stylesThumb, ...styles.thumbOn}
+        size += 4
         markupMouseTracker= (
           <div
             style={styles.mouseTracker}
@@ -88,6 +94,11 @@ export class Slider extends React.Component {
         }
       }
 
+      var markupIcon
+      if(icon) {
+        markupIcon= <Icon size={size} color='#fff'>{icon}</Icon>
+      }
+
       markupThumb= (
         <a href='#'
           onClick={e => e.preventDefault()}
@@ -97,8 +108,9 @@ export class Slider extends React.Component {
           >
           <div
             style={stylesThumb}
-            onMouseDown={::this.onTrackStart}
-            />
+            onMouseDown={::this.onTrackStart}>
+            {markupIcon}
+          </div>
           <div style={focus}/>
           {markupMouseTracker}
         </a>
