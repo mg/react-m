@@ -1,10 +1,6 @@
 export default {
-  container: {
-  },
-
   containerScrollable: {
     overflow: 'hidden',
-    height: '50px',
   },
 
   tabs: {
@@ -22,7 +18,6 @@ export default {
     justifyContent: 'flex-start',
     overflowX: 'scroll',
     overflowY: 'hidden',
-    height: 96,
   },
 
   transition: {
@@ -31,9 +26,6 @@ export default {
   },
 
   tab: {
-    height: '48px',
-    lineHeight: '48px',
-    padding: '0 12px',
     transitionProperty: 'border-bottom-color',
     overflow: 'hidden',
     position: 'relative',
@@ -48,19 +40,15 @@ export default {
     flexGrow: 1,
   },
 
-  tabSelected: {
-  },
-
-  tabDisabled: {
-  },
-
   link: {
     fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
-    fontSize: 14,
     fontWeight: 500,
     textDecoration: 'none',
     textTransform: 'uppercase',
     transitionProperty: 'color',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   ripple: {

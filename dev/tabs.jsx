@@ -2,7 +2,7 @@ import React from 'react'
 import { Tabs } from '../src'
 import { SpreadRow, LeftPackedRow, Space } from './layouts.jsx'
 
-const manytabs= [
+const manyTabs= [
   {id: 1, text: 'Tab one'},
   {id: 2, text: 'Tab two'},
   {id: 3, text: 'Tab three'},
@@ -19,13 +19,19 @@ const tabs= [
   {id: 3, text: 'Tab three'},
 ]
 
+const tabsWithIcons= [
+  {id: 1, text: 'Chat', icon: 'chat'},
+  {id: 2, text: 'Email', icon: 'email'},
+  {id: 3, text: 'Phonebook', icon: 'call'},
+]
+
 export default class TabsPage extends React.Component {
   render() {
     return (
       <div>
         <h3>Scrollable tabs</h3>
         <Tabs
-          items={manytabs}
+          items={manyTabs}
           id={tab => tab.id}
           text={tab => tab.text}
           selected={this.state.tab1}
@@ -42,12 +48,52 @@ export default class TabsPage extends React.Component {
           ripple
           fixed
           />
+
+        <h3>With icons</h3>
+        <Tabs
+          items={tabsWithIcons}
+          id={tab => tab.id}
+          text={tab => tab.text}
+          icon={tab => tab.icon}
+          selected={this.state.tab3}
+          onClick={tab3 => this.setState({tab3})}
+          ripple
+          fixed
+          />
+
+        <h3>Only icons</h3>
+        <Tabs
+          items={tabsWithIcons}
+          id={tab => tab.id}
+          icon={tab => tab.icon}
+          selected={this.state.tab4}
+          onClick={tab4 => this.setState({tab4})}
+          ripple
+          fixed
+          />
+
+        <h3>Smaller</h3>
+        <Tabs
+          size={8}
+          items={tabsWithIcons}
+          id={tab => tab.id}
+          text={tab => tab.text}
+          icon={tab => tab.icon}
+          selected={this.state.tab5}
+          onClick={tab5 => this.setState({tab5})}
+          ripple
+          fixed
+          />
+
       </div>
     )
   }
 
   state= {
-    tab1: tabs[0],
+    tab1: manyTabs[0],
     tab2: tabs[0],
+    tab3: tabsWithIcons[0],
+    tab4: tabsWithIcons[0],
+    tab5: tabsWithIcons[0],
   }
 }
