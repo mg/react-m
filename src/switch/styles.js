@@ -18,8 +18,7 @@ export default {
 
   track: {
     position: 'absolute',
-    left: 0,
-    top: 5,
+    top: 4,
     height: 14,
     width: 36,
     borderRadius: 14,
@@ -28,8 +27,6 @@ export default {
 
   thumb: {
     position: 'absolute',
-    left: 0,
-    top: 1,
     height: 20,
     width: 20,
     borderRadius: '50%',
