@@ -7,5 +7,8 @@ export default {
     fontFeatureSettings: '\'liga\'',
     WebkitFontFeatureSettings: '\'liga\'',
     WebkitFontSmoothing: 'antialiased',
+    transitionDuration: '0.4s',
+    transitionTimingFunction: 'cubic-bezier(.4,0,1,1)',
+    transitionProperty: 'color',
   },
 }
