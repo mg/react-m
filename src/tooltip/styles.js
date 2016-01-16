@@ -1,7 +1,6 @@
 export default {
   container: {
     position: 'relative',
-    display: 'inline-block',
   },
 
   tooltip: {
@@ -29,5 +28,10 @@ export default {
     position: 'absolute',
     padding: 8,
     transform: 'scale(0)',
-  }
+  },
+
+  itemContainer: {
+    display: 'flex',
+    alignItems: 'center',
+  },
 }

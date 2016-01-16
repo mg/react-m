@@ -49,12 +49,12 @@ export class Tooltip extends React.Component {
     return (
       <div style={styles.container}>
         <div
+          style={styles.itemContainer}
           onMouseMove={::this.onMouseMove}
           onMouseLeave={::this.onMouseLeave}
+          ref={e => this.container= e}
           >
-          <div ref={e => this.container= e} onFocus={::this.onMouseMove} onBlur={::this.onMouseLeave}>
-            {children}
-          </div>
+          {children}
         </div>
         <div style={styleTooltip} ref={e => this.tooltip= e}>
           {tooltip}
