@@ -53,6 +53,9 @@ export default {
     cursor: 'pointer',
     borderRadius: '50%',
     transition: 'top .2s cubic-bezier(.4,0,.2,1), margin-left .2s cubic-bezier(.4,0,.2,1), width .2s cubic-bezier(.4,0,.2,1), height .2s cubic-bezier(.4,0,.2,1)',
+    ':hover': {
+      boxShadow: '0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36)',
+    }
   },
 
   thumbFocus: {
