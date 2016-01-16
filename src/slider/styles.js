@@ -1,8 +1,9 @@
 export default {
   container: {
     background: '0 0',
-    minHeight: 18,
     position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
   },
 
   slider: {
@@ -11,16 +12,14 @@ export default {
 
   background: {
     position: 'absolute',
-    top: 0,
-    height: 10,
+    height: '100%',
     width: '100%',
-    left: 0,
-    padding: '5px 0 0 0',
     overflow: 'hidden',
     border: 0,
     transform: 'translate(0,-1px)',
     background: '0 0',
     display: 'flex',
+    alignItems: 'center',
     cursor: 'pointer',
   },
 
@@ -28,7 +27,6 @@ export default {
     position: 'relative',
     border: 0,
     height: 2,
-    marginTop: 5,
     cursor: 'pointer',
   },
 
@@ -37,43 +35,27 @@ export default {
     position: 'relative',
     border: 0,
     height: 2,
-    marginTop: 5,
     padding: 0,
     cursor: 'pointer',
+  },
+
+  thumbContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
   },
 
   thumb: {
     zIndex: 1,
     cursor: 'pointer',
-    position: 'absolute',
-    marginTop: 2,
-    width: 16,
-    height: 16,
     borderRadius: '50%',
     transition: 'top .2s cubic-bezier(.4,0,.2,1), margin-left .2s cubic-bezier(.4,0,.2,1), width .2s cubic-bezier(.4,0,.2,1), height .2s cubic-bezier(.4,0,.2,1)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 
-  thumbOn: {
-    marginLeft: -2,
-    top: -2,
-    width: 20,
-    height: 20,
-  },
-
-  focus: {
-    position: 'absolute',
-    display: 'inline-block',
-    boxSizing: 'border-box',
-
-    height: 20,
-    width: 20,
-    borderRadius: '50%',
-
-    backgroundColor: 'transparent',
-    boxShadow: 'none',
+  thumbFocus: {
     transition: 'background-color box-shadow .28s cubic-bezier(.4,0,.2,1)',
   },
 
@@ -91,6 +73,17 @@ export default {
 
   disabledThumb: {
     cursor: 'text',
+  },
+
+  link: {
+    display: 'block',
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textDecoration: 'none',
+    outline: 'none',
   },
 
   mouseTracker: {

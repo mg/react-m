@@ -25,7 +25,7 @@ export class Slider extends React.Component {
   }
 
   static defaultProps= {
-    size: 10,
+    size: 20,
     thumbColor: '#3f51b5',
     thumbHighlightColor: 'rgba(63,81,181,.26)',
     trackOnColor: '#3f51b5',
@@ -53,18 +53,25 @@ export class Slider extends React.Component {
       const percent= (x - this.state.left) / this.state.width
 
       var markupMouseTracker
-      let stylesThumb= {
+      let styleThumbContainer= {
+        ...styles.thumbContainer,
+        width: size,
+        left: x - this.state.left - size / 2,
+      }
+
+      let styleThumb= {
         ...styles.thumb,
-        left: x - this.state.left - styles.thumb.width / 2,
+        width: size * 0.75,
+        height: size * 0.75,
+
         backgroundColor: thumbColor
       }
 
       if(disabled) {
-        stylesThumb= {...stylesThumb, ...styles.disabledThumb, backgroundColor: thumbColorDisabled}
+        styleThumb= {...styleThumb, ...styles.disabledThumb, backgroundColor: thumbColorDisabled}
       }
       if(this.state.track) {
-        stylesThumb= {...stylesThumb, ...styles.thumbOn}
-        size += 4
+        styleThumb= {...styleThumb, width: size, height: size}
         markupMouseTracker= (
           <div
             style={styles.mouseTracker}
@@ -85,35 +92,37 @@ export class Slider extends React.Component {
       markupSliderLower= <div style={stylesLower} onMouseDown={e => e.preventDefault()}/>
       markupSliderHigher= <div style={stylesHigher} onMouseDown={e => e.preventDefault()}/>
 
-      let focus= {...styles.focus, left: x - this.state.left - styles.focus.width / 2}
       if(this.state.focused && !this.state.track) {
-        focus= {
-          ...focus,
-          backgroundColor: thumbHighlightColor,
+        styleThumb= {
+          ...styleThumb,
+          ...styles.thumbFocus,
           boxShadow: `0 0 0 8px ${thumbHighlightColor}`,
         }
       }
 
       var markupIcon
       if(icon) {
-        markupIcon= <Icon size={size} color='#fff'>{icon}</Icon>
+        markupIcon= <Icon size={this.state.track ? size * 0.8 : size*0.5} color='#fff'>{icon}</Icon>
       }
 
       markupThumb= (
-        <a href='#'
-          onClick={e => e.preventDefault()}
-          onKeyDown={::this.onKeyDown}
-          onFocus={::this.onFocus}
-          onBlur={::this.onBlur}
-          >
+        <div style={styleThumbContainer}>
           <div
-            style={stylesThumb}
+            style={styleThumb}
             onMouseDown={::this.onTrackStart}>
-            {markupIcon}
+            <a
+              href='#'
+              style={styles.link}
+              onClick={e => e.preventDefault()}
+              onKeyDown={::this.onKeyDown}
+              onFocus={::this.onFocus}
+              onBlur={::this.onBlur}
+              >
+              {markupIcon}
+            </a>
           </div>
-          <div style={focus}/>
           {markupMouseTracker}
-        </a>
+        </div>
       )
     }
 
@@ -123,7 +132,7 @@ export class Slider extends React.Component {
     }
 
     return (
-      <div style={styles.container}>
+      <div style={{...styles.container, height: size}}>
         <input
           type='number'
           min={min}

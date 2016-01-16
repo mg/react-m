@@ -16,9 +16,13 @@ export default class SliderPage extends React.Component {
         <Slider min={0} max={100} step={1} value={this.state.s2} onChange={s2 => this.setState({s2})}/>
         <div>{this.state.s2}&nbsp;</div>
 
-        <h3>With icon</h3>
-        <Slider icon='volume_up' min={0} max={100} value={this.state.s3} onChange={s3 => this.setState({s3})}/>
+        <h3>Larger</h3>
+        <Slider size={30} min={0} max={100} value={this.state.s3} onChange={s3 => this.setState({s3})}/>
         <div>{this.state.s3}&nbsp;</div>
+
+        <h3>With icon</h3>
+        <Slider icon='volume_up' size={40} min={0} max={100} value={this.state.s4} onChange={s4 => this.setState({s4})}/>
+        <div>{this.state.s4}&nbsp;</div>
 
         <h3>Disabled</h3>
         <Slider disabled min={0} max={100} value={50} onChange={noop}/>
