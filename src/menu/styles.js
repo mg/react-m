@@ -48,5 +48,15 @@ export default {
 
   upLeft: {
     transformOrigin: '100% 100%',
-  },  
+  },
+
+  outside: {
+    zIndex: 10,
+    backgroundColor: 'transparent',
+    position:'fixed',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+  }
 }

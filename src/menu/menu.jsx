@@ -21,10 +21,17 @@ export class Menu extends React.Component {
     const { menu }= this.state
 
     let styleMenu= {...styles.menu}
+    let markupOutside
     if(menu === 0) {
       styleMenu= {...styleMenu, ...styles.menuOff}
     } else if(menu === 1) {
       styleMenu= {...styleMenu, ...styles.menuOn}
+      markupOutside= (
+        <div
+          style={styles.outside}
+          onClick={::this.onClick}
+          />
+      )
     } else {
       styleMenu= {...styleMenu, ...styles.menuHide}
     }
@@ -83,6 +90,7 @@ export class Menu extends React.Component {
             {children}
           </div>
         </nav>
+        {markupOutside}
       </div>
     )
   }
