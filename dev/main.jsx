@@ -5,6 +5,7 @@ import { UseAutoId } from 'react-autoid'
 const links= [
   { to: '/badge', label: 'Badge' },
   { to: '/checkbox', label: 'Checkbox' },
+  { to: '/dots', label: 'Dots' },
   { to: '/drawer', label: 'Drawer' },
   { to: '/fab', label: 'Fab' },
   { to: '/flatbutton', label: 'FlatButton' },

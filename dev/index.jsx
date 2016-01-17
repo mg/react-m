@@ -23,6 +23,7 @@ import Menu from './menu.jsx'
 import Drawer from './drawer.jsx'
 import Tabs from './tabs.jsx'
 import Input from './input.jsx'
+import Dots from './dots.jsx'
 
 render(
   <Router>
@@ -46,6 +47,7 @@ render(
       <Route path='drawer' component={Drawer} />
       <Route path='tabs' component={Tabs} />
       <Route path='input' component={Input} />
+      <Route path='dots' component={Dots} />
     </Route>
   </Router>
   , document.getElementById('app')
