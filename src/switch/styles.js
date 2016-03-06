@@ -38,6 +38,7 @@ export default {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    left: 0,
   },
 
   thumbOn: {
