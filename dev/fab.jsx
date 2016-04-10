@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fab } from '../src'
+import Fab from '../src/fab'
 
 const noop= () => {}
 
