@@ -16,6 +16,7 @@ export class Input extends React.Component {
   }
 
   static defaultProps= {
+    value: '',
     size: 16,
   }
 

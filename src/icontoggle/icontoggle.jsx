@@ -18,6 +18,7 @@ export class IconToggle extends React.Component {
   }
 
   static defaultProps= {
+    value: false,
     colorOn: '#3f51b5',
     colorOff: '#616161',
     size: 24,

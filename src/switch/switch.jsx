@@ -27,6 +27,7 @@ export class Switch extends React.Component {
   }
 
   static defaultProps= {
+    value: false,
     size: 16,
     thumbColorOn: '#3f51b5',
     thumbColorOff: '#fafafa',
