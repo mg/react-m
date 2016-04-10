@@ -12,6 +12,10 @@ export class Checkbox extends React.Component {
     onChange: React.PropTypes.func.isRequired,
   }
 
+  static defaultProps= {
+    value: false,
+  }
+
   render() {
     const { value, ripple, disabled, autoId, children }= this.props
 
